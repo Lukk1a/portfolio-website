@@ -12,7 +12,6 @@ interface NavbarProps {
 
 export function Navbar({ onOpenMobileMenu }: NavbarProps) {
   const [isScrolled, setIsScrolled] = React.useState(false);
-  const [time, setTime] = React.useState<string>("");
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -21,27 +20,6 @@ export function Navbar({ onOpenMobileMenu }: NavbarProps) {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  React.useEffect(() => {
-    const updateTime = () => {
-      try {
-        const formatter = new Intl.DateTimeFormat("en-GB", {
-          timeZone: portfolioConfig.personal.timezone,
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: false,
-        });
-        setTime(formatter.format(new Date()));
-      } catch {
-        setTime("CET");
-      }
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -53,7 +31,7 @@ export function Navbar({ onOpenMobileMenu }: NavbarProps) {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8 flex items-center justify-between">
-        {/* Brand / Name & Status */}
+        {/* Brand / Name */}
         <div className="flex items-center gap-4">
           <Magnetic strength={0.25}>
             <button
@@ -66,14 +44,6 @@ export function Navbar({ onOpenMobileMenu }: NavbarProps) {
               </span>
             </button>
           </Magnetic>
-
-          <div className="hidden md:flex items-center gap-2 pl-3 border-l border-white/10 font-mono text-[11px] text-[#71717a]">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38bdf8] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#38bdf8]"></span>
-            </span>
-            <span>{time ? `${time} CET` : "CET"}</span>
-          </div>
         </div>
 
         {/* Desktop Nav Items */}
