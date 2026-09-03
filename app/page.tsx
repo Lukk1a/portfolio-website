@@ -6,7 +6,6 @@ import { MobileMenu } from "@/components/navigation/mobile-menu";
 import { ScrollIndicator } from "@/components/navigation/scroll-indicator";
 import { CopyToast } from "@/components/ui/copy-toast";
 import { HeroSection } from "@/components/hero/hero-section";
-import { ProjectsSection } from "@/components/projects/projects-section";
 import { SkillsSection } from "@/components/skills/skills-section";
 import { AboutSection } from "@/components/about/about-section";
 import { LearningSection } from "@/components/learning/learning-section";
@@ -47,7 +46,6 @@ export default function Home() {
       {/* Main Senior Engineering Page Layout */}
       <main className="relative z-10">
         <HeroSection />
-        <ProjectsSection />
         <SkillsSection />
         <AboutSection />
         <LearningSection />

@@ -80,10 +80,10 @@ export function HeroSection() {
         {/* Action Buttons */}
         <motion.div variants={itemVariants} className="pt-4 flex items-center gap-4">
           <button
-            onClick={() => scrollToSection("projects")}
+            onClick={() => scrollToSection("skills")}
             className="px-5 py-2.5 rounded-lg bg-white text-black font-medium text-xs font-mono tracking-wider hover:bg-zinc-200 transition-colors interactive-press cursor-pointer flex items-center gap-2"
           >
-            <span>EXPLORE CODEBASES</span>
+            <span>VIEW STACK</span>
             <ArrowDown className="w-3.5 h-3.5" />
           </button>
 
@@ -110,10 +110,10 @@ export function HeroSection() {
 
         <Magnetic strength={0.2}>
           <button
-            onClick={() => scrollToSection("projects")}
+            onClick={() => scrollToSection("skills")}
             className="group flex items-center gap-2 text-zinc-400 hover:text-white transition-colors cursor-pointer"
           >
-            <span>SCROLL TO SYSTEMS</span>
+            <span>SCROLL TO STACK</span>
             <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
           </button>
         </Magnetic>

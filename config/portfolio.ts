@@ -14,21 +14,7 @@ export interface SkillCategory {
   items: TechItem[];
 }
 
-export interface ProjectItem {
-  id: string;
-  index: string;
-  title: string;
-  tagline: string;
-  category: string;
-  description: string;
-  architecture: string;
-  tech: string[];
-  highlights: string[];
-  metrics: string;
-  github?: string;
-  gitlab?: string;
-  link?: string;
-}
+
 
 export interface CurrentlyLearningItem {
   id: string;
@@ -53,7 +39,6 @@ export interface PortfolioConfig {
     email: string;
     discord: string;
   };
-  projects: ProjectItem[];
   skillCategories: SkillCategory[];
   currentlyLearning: CurrentlyLearningItem[];
 }
@@ -75,78 +60,6 @@ export const portfolioConfig: PortfolioConfig = {
     discord: "lukaxdq",
   },
 
-  // Featured Engineering Architectures
-  projects: [
-    {
-      id: "titan-engine",
-      index: "01",
-      title: "Titan Core",
-      tagline: "High-Performance C++20 Systems Architecture",
-      category: "Systems & Engines",
-      description: "A lightweight, data-oriented systems framework designed for deterministic game loops and low-latency physics simulation. Implements custom arena allocators and SIMD vector math.",
-      architecture: "C++20 • Linear Memory Arenas • Entity-Component Pipeline • Cache-Conscious Data Layout",
-      tech: ["C++", "CMake", "SIMD", "Memory Management"],
-      highlights: [
-        "Linear memory arena allocator preventing heap fragmentation",
-        "Deterministic fixed-timestep simulation loop running at sub-millisecond latency",
-        "Zero external dependencies for core data structures and memory pools",
-      ],
-      metrics: "< 0.4ms tick time",
-      github: "https://github.com/lukaxdq",
-    },
-    {
-      id: "pulse-pipeline",
-      index: "02",
-      title: "Pulse Engine",
-      tagline: "Distributed Asynchronous Task & Telemetry Pipeline",
-      category: "Automation & Tooling",
-      description: "An event-driven backend service for scraping, automated data enrichment, and real-time telemetry streaming built with modern async Python and Redis.",
-      architecture: "Python 3.12 • AsyncIO • Redis PubSub • Structured Logging • Dockerized Multi-Worker",
-      tech: ["Python", "AsyncIO", "Redis", "Docker", "Linux"],
-      highlights: [
-        "Distributed task queues handling burst ingest traffic gracefully",
-        "Automated failure recovery and dead-letter queue re-processing",
-        "Telemetry exporter streaming status metrics directly to dashboards",
-      ],
-      metrics: "5,000+ ops/sec",
-      github: "https://github.com/lukaxdq",
-    },
-    {
-      id: "nexus-netcode",
-      index: "03",
-      title: "Nexus Replication",
-      tagline: "Low-Latency Luau Game Netcode & Replication Framework",
-      category: "Game Mechanics",
-      description: "A production-tested multiplayer replication framework for the Roblox platform. Features client-side prediction, delta compression for position packets, and modular component lifecycle.",
-      architecture: "Luau (Strict) • Delta Compression • Client Prediction • Event Batching",
-      tech: ["Luau", "Roblox Engine", "Networking", "State Sync"],
-      highlights: [
-        "Delta compression reducing packet bandwidth consumption by up to 68%",
-        "Server-authoritative state reconciliation with smooth client prediction",
-        "Clean OOP/functional modular design separating simulation from view layer",
-      ],
-      metrics: "-68% Bandwidth",
-      github: "https://github.com/lukaxdq",
-    },
-    {
-      id: "hyperion-portfolio",
-      index: "04",
-      title: "Hyperion Portfolio",
-      tagline: "Next.js 15 Standalone Architecture & CI/CD Pipeline",
-      category: "Web Architecture",
-      description: "The platform you are viewing right now. Engineered with Next.js 15 App Router, React 19, Turbopack, physical Framer Motion springs, and automated GitLab CI/CD container registry builds.",
-      architecture: "Next.js 15 • React 19 • TypeScript • Tailwind CSS • Docker Standalone • GitLab CI/CD",
-      tech: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "GitLab CI/CD", "Docker"],
-      highlights: [
-        "Output: standalone Docker build with Alpine Linux for minimal container footprints",
-        "Automated GitLab CI/CD pipeline running multi-stage caching, lint, and build checks",
-        "Sub-150ms interaction feedback following Emil Kowalski's craft principles",
-      ],
-      metrics: "100 Lighthouse Perf",
-      gitlab: "https://gitlab.com/Lukk1a/portfolio",
-      link: "https://gitlab.com/Lukk1a/portfolio",
-    },
-  ],
 
   // Structured Technology Index
   skillCategories: [

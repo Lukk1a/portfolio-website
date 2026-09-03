@@ -11,7 +11,6 @@ interface Section {
 
 const sections: Section[] = [
   { id: "hero", label: "Overview" },
-  { id: "projects", label: "Projects" },
   { id: "skills", label: "Stack" },
   { id: "about", label: "Principles" },
   { id: "learning", label: "Radar" },

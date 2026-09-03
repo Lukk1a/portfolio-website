@@ -50,12 +50,6 @@ export function Navbar({ onOpenMobileMenu }: NavbarProps) {
         {/* Desktop Nav Items */}
         <nav className="hidden md:flex items-center gap-8 font-mono text-xs text-zinc-400 tracking-wider uppercase">
           <button
-            onClick={() => scrollToSection("projects")}
-            className="hover:text-white transition-colors cursor-pointer interactive-press"
-          >
-            PROJECTS
-          </button>
-          <button
             onClick={() => scrollToSection("skills")}
             className="hover:text-white transition-colors cursor-pointer interactive-press"
           >

@@ -26,11 +26,10 @@ export function MobileMenu({ isOpen, onClose, onToast }: MobileMenuProps) {
 
   const menuItems = [
     { label: "Overview", id: "hero", index: "00" },
-    { label: "Featured Projects", id: "projects", index: "01" },
-    { label: "Technologies & Stack", id: "skills", index: "02" },
-    { label: "Engineering Principles", id: "about", index: "03" },
-    { label: "Research Radar", id: "learning", index: "04" },
-    { label: "Contact", id: "contact", index: "05" },
+    { label: "Technologies & Stack", id: "skills", index: "01" },
+    { label: "Engineering Principles", id: "about", index: "02" },
+    { label: "Research Radar", id: "learning", index: "03" },
+    { label: "Contact", id: "contact", index: "04" },
   ];
 
   return (
