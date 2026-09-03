@@ -4,14 +4,13 @@ import * as React from "react";
 import { portfolioConfig } from "@/config/portfolio";
 import { scrollToSection } from "@/lib/utils";
 import { Magnetic } from "@/components/ui/magnetic";
-import { Menu, Search } from "lucide-react";
+import { Menu } from "lucide-react";
 
 interface NavbarProps {
   onOpenMobileMenu: () => void;
-  onOpenCommandPalette?: () => void;
 }
 
-export function Navbar({ onOpenMobileMenu, onOpenCommandPalette }: NavbarProps) {
+export function Navbar({ onOpenMobileMenu }: NavbarProps) {
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
@@ -82,24 +81,11 @@ export function Navbar({ onOpenMobileMenu, onOpenCommandPalette }: NavbarProps) 
           </button>
         </nav>
 
-        {/* Action: Command Palette Trigger + Mobile Menu */}
-        <div className="flex items-center gap-2">
-          {onOpenCommandPalette && (
-            <button
-              onClick={onOpenCommandPalette}
-              className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-xs font-mono text-zinc-400 hover:text-white transition-colors interactive-press"
-              aria-label="Open command palette"
-            >
-              <Search className="w-3.5 h-3.5 text-zinc-400" />
-              <kbd className="hidden sm:inline-block text-[10px] px-1 py-0.5 rounded bg-white/[0.06] text-zinc-400 border border-white/[0.06]">
-                ⌘K
-              </kbd>
-            </button>
-          )}
-
+        {/* Mobile Menu Trigger */}
+        <div className="flex items-center md:hidden">
           <button
             onClick={onOpenMobileMenu}
-            className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] text-zinc-400 hover:text-white md:hidden interactive-press"
+            className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] text-zinc-400 hover:text-white interactive-press"
             aria-label="Open mobile menu"
           >
             <Menu className="w-4 h-4" />

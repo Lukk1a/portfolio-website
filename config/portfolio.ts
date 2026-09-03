@@ -38,15 +38,6 @@ export interface CurrentlyLearningItem {
   note: string;
 }
 
-export interface SpecSnippet {
-  id: string;
-  name: string;
-  domain: string;
-  filename: string;
-  code: string;
-  summary: string;
-}
-
 export interface PortfolioConfig {
   personal: {
     name: string;
@@ -62,7 +53,6 @@ export interface PortfolioConfig {
     email: string;
     discord: string;
   };
-  specSnippets: SpecSnippet[];
   projects: ProjectItem[];
   skillCategories: SkillCategory[];
   currentlyLearning: CurrentlyLearningItem[];
@@ -84,77 +74,6 @@ export const portfolioConfig: PortfolioConfig = {
     email: "pajkanovicluka7@gmail.com",
     discord: "lukaxdq",
   },
-
-  // Interactive inline spec snippets for hero workstation
-  specSnippets: [
-    {
-      id: "cpp",
-      name: "C++",
-      domain: "Native Systems & Memory Arenas",
-      filename: "arena_allocator.hpp",
-      code: `class LinearArena {
-public:
-  explicit LinearArena(size_t capacity) 
-    : buffer_(std::make_unique<uint8_t[]>(capacity)), offset_(0) {}
-
-  template<typename T, typename... Args>
-  T* allocate(Args&&... args) {
-    void* ptr = buffer_.get() + offset_;
-    offset_ += sizeof(T);
-    return new (ptr) T(std::forward<Args>(args)...);
-  }
-  void reset() noexcept { offset_ = 0; }
-};`,
-      summary: "Zero-fragmentation contiguous linear memory block for sub-millisecond tick loops.",
-    },
-    {
-      id: "python",
-      name: "Python",
-      domain: "Distributed Pipelines & Asynchronous Workers",
-      filename: "pipeline_worker.py",
-      code: `async def process_task_batch(queue: RedisQueue, batch_size: int = 64):
-    async with queue.lock("worker_ingest"):
-        tasks = await queue.dequeue_many(batch_size)
-        results = await asyncio.gather(
-            *(enrich_telemetry(task) for task in tasks),
-            return_exceptions=True
-        )
-        return [r for r in results if not isinstance(r, Exception)]`,
-      summary: "High-throughput asynchronous ingest pipeline with failure recovery and telemetry streaming.",
-    },
-    {
-      id: "ts",
-      name: "TypeScript",
-      domain: "Type-Safe Contracts & Platform Architecture",
-      filename: "system_contract.ts",
-      code: `type Transition<State extends string> = {
-  readonly to: State;
-  readonly guard?: (context: SystemContext) => boolean;
-};
-
-export interface SystemContract<States extends string> {
-  readonly initial: States;
-  readonly transitions: ReadonlyMap<States, readonly Transition<States>[]>;
-}`,
-      summary: "Compile-time deterministic state machine contracts preventing invalid runtime transitions.",
-    },
-    {
-      id: "luau",
-      name: "Luau",
-      domain: "Client/Server Replication & Netcode",
-      filename: "netcode_sync.luau",
-      code: `local NetcodeSync = {}
-function NetcodeSync.packDelta(previousState: Vector3, currentState: Vector3): buffer
-    local delta = currentState - previousState
-    local b = buffer.create(6)
-    buffer.writei16(b, 0, math.clamp(math.round(delta.X * 100), -32768, 32767))
-    buffer.writei16(b, 2, math.clamp(math.round(delta.Y * 100), -32768, 32767))
-    buffer.writei16(b, 4, math.clamp(math.round(delta.Z * 100), -32768, 32767))
-    return b
-end`,
-      summary: "Compressed delta position packets reducing client/server network bandwidth by up to 68%.",
-    },
-  ],
 
   // Featured Engineering Architectures
   projects: [
