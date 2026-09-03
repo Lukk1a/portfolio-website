@@ -32,6 +32,8 @@ Thumbs.db
 .vscode/
 .idea/
 .agents/
+/.claude/
+/agent/
 
 # typescript cache
 *.tsbuildinfo
