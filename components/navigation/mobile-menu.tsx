@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Mail } from "lucide-react";
-import { GithubIcon, DiscordIcon } from "@/components/ui/icons";
+import { GithubIcon, GitlabIcon, DiscordIcon } from "@/components/ui/icons";
 import { portfolioConfig } from "@/config/portfolio";
 import { scrollToSection } from "@/lib/utils";
 
@@ -25,11 +25,12 @@ export function MobileMenu({ isOpen, onClose, onToast }: MobileMenuProps) {
   };
 
   const menuItems = [
-    { label: "Overview", id: "hero" },
-    { label: "Skills & Stack", id: "skills" },
-    { label: "About", id: "about" },
-    { label: "Currently Learning", id: "learning" },
-    { label: "Contact", id: "contact" },
+    { label: "Overview", id: "hero", index: "00" },
+    { label: "Featured Projects", id: "projects", index: "01" },
+    { label: "Technologies & Stack", id: "skills", index: "02" },
+    { label: "Engineering Principles", id: "about", index: "03" },
+    { label: "Research Radar", id: "learning", index: "04" },
+    { label: "Contact", id: "contact", index: "05" },
   ];
 
   return (
@@ -39,17 +40,17 @@ export function MobileMenu({ isOpen, onClose, onToast }: MobileMenuProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 bg-[#080808]/95 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-10"
+          transition={{ duration: 0.18 }}
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 select-none"
         >
           {/* Top Bar */}
           <div className="flex items-center justify-between border-b border-white/[0.08] pb-6">
-            <span className="font-mono text-xs tracking-widest text-[#f5f5f7] font-semibold">
-              {portfolioConfig.personal.name}
-            </span>
+            <div className="flex items-center gap-2 font-mono text-xs tracking-wider text-white font-semibold">
+              <span>{portfolioConfig.personal.fullName}</span>
+            </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-lg bg-white/[0.05] border border-white/[0.08] text-white hover:bg-white/10 cursor-pointer"
+              className="p-2 rounded-lg bg-white/[0.05] border border-white/[0.08] text-zinc-400 hover:text-white cursor-pointer interactive-press"
               aria-label="Close menu"
             >
               <X className="w-5 h-5" />
@@ -57,20 +58,23 @@ export function MobileMenu({ isOpen, onClose, onToast }: MobileMenuProps) {
           </div>
 
           {/* Links */}
-          <div className="flex flex-col gap-6 my-auto py-8">
+          <div className="flex flex-col gap-5 my-auto py-6">
             {menuItems.map((item, idx) => (
               <motion.button
                 key={item.id}
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: idx * 0.05, duration: 0.2 }}
+                transition={{ delay: idx * 0.04, duration: 0.2 }}
                 onClick={() => handleNav(item.id)}
-                className="flex items-center justify-between text-left group py-2 cursor-pointer"
+                className="flex items-center justify-between text-left group py-1.5 cursor-pointer"
               >
-                <span className="text-3xl sm:text-4xl font-light tracking-tight text-[#f5f5f7] group-hover:text-white group-hover:translate-x-2 transition-transform">
-                  {item.label}
-                </span>
-                <span className="font-mono text-xs text-[#71717a] group-hover:text-white transition-colors">
+                <div className="flex items-baseline gap-3">
+                  <span className="font-mono text-xs text-zinc-500">[{item.index}]</span>
+                  <span className="text-2xl sm:text-3xl font-light tracking-tight text-zinc-300 group-hover:text-white group-hover:translate-x-2 transition-transform">
+                    {item.label}
+                  </span>
+                </div>
+                <span className="font-mono text-xs text-zinc-600 group-hover:text-zinc-400 transition-colors">
                   →
                 </span>
               </motion.button>
@@ -78,28 +82,37 @@ export function MobileMenu({ isOpen, onClose, onToast }: MobileMenuProps) {
           </div>
 
           {/* Mobile Footer / Quick Socials */}
-          <div className="pt-6 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-[#a1a1aa]">
-            <button
-              onClick={() => copyItem(portfolioConfig.social.email, "Email")}
-              className="flex items-center gap-2 hover:text-white cursor-pointer"
+          <div className="pt-6 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-zinc-400">
+            <a
+              href={portfolioConfig.social.gitlab}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-white transition-colors"
             >
-              <Mail className="w-3.5 h-3.5 text-[#38bdf8]" />
-              <span>Email</span>
-            </button>
+              <GitlabIcon className="w-3.5 h-3.5 text-zinc-400" />
+              <span>GitLab</span>
+            </a>
             <a
               href={portfolioConfig.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-white"
+              className="flex items-center gap-2 hover:text-white transition-colors"
             >
-              <GithubIcon className="w-3.5 h-3.5 text-[#38bdf8]" />
+              <GithubIcon className="w-3.5 h-3.5 text-zinc-400" />
               <span>GitHub</span>
             </a>
             <button
-              onClick={() => copyItem(portfolioConfig.social.discord, "Discord")}
-              className="flex items-center gap-2 hover:text-white cursor-pointer"
+              onClick={() => copyItem(portfolioConfig.social.email, "Email")}
+              className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer"
             >
-              <DiscordIcon className="w-3.5 h-3.5 text-[#38bdf8]" />
+              <Mail className="w-3.5 h-3.5 text-zinc-400" />
+              <span>Email</span>
+            </button>
+            <button
+              onClick={() => copyItem(portfolioConfig.social.discord, "Discord")}
+              className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer"
+            >
+              <DiscordIcon className="w-3.5 h-3.5 text-zinc-400" />
               <span>Discord</span>
             </button>
           </div>

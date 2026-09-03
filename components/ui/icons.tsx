@@ -21,6 +21,24 @@ export function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+export function GitlabIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      {...props}
+    >
+      <path d="m22 13.29-1.84-5.67a.84.84 0 0 0-.25-.37.81.81 0 0 0-.44-.13.82.82 0 0 0-.44.13.84.84 0 0 0-.25.37L17 13.29H7L5.18 7.62a.84.84 0 0 0-.25-.37.82.82 0 0 0-.44-.13.81.81 0 0 0-.44.13.84.84 0 0 0-.25.37L2 13.29a.9.9 0 0 0 .32.99l9.35 6.79a.72.72 0 0 0 .66 0l9.35-6.79a.9.9 0 0 0 .32-.99z" />
+    </svg>
+  );
+}
+
 export function DiscordIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg

@@ -10,13 +10,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#080808",
+        background: "#000000",
         surface: {
-          50: "#171717",
-          100: "#141414",
-          200: "#101010",
-          300: "#0c0c0c",
-          DEFAULT: "#080808",
+          50: "#18181b",
+          100: "#121214",
+          200: "#0e0e10",
+          300: "#09090b",
+          DEFAULT: "#000000",
         },
         border: {
           subtle: "rgba(255, 255, 255, 0.08)",
@@ -24,14 +24,15 @@ module.exports = {
           focus: "rgba(255, 255, 255, 0.28)",
         },
         content: {
-          primary: "#f5f5f7",
+          primary: "#ededed",
           secondary: "#a1a1aa",
           muted: "#71717a",
           subtle: "#52525b",
         },
         accent: {
-          DEFAULT: "#38bdf8",
-          glow: "rgba(56, 189, 248, 0.15)",
+          DEFAULT: "#ededed",
+          pure: "#ffffff",
+          glow: "rgba(255, 255, 255, 0.08)",
         },
       },
       fontFamily: {
@@ -43,6 +44,10 @@ module.exports = {
         tight: "-0.02em",
         widest: "0.15em",
         mega: "0.25em",
+      },
+      boxShadow: {
+        subtle: "0 1px 2px 0 rgba(0, 0, 0, 0.5)",
+        card: "0 4px 20px -2px rgba(0, 0, 0, 0.7)",
       },
     },
   },

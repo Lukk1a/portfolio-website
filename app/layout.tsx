@@ -15,36 +15,37 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Luka — Developer",
+  title: "Luka Pajkanovic — Systems & Web Developer",
   description:
-    "Personal portfolio of Luka, specializing in C++, Python, JavaScript, TypeScript, and Luau. Focused on systems, web architecture, and game development.",
+    "Engineering portfolio of Luka Pajkanovic. Focused on C++, Python, TypeScript, and Luau. Low-level memory architectures, asynchronous pipelines, game simulation, and web platforms.",
   keywords: [
-    "Luka",
+    "Luka Pajkanovic",
     "Developer",
+    "Systems Engineer",
     "Software Engineer",
     "C++",
     "Python",
-    "JavaScript",
     "TypeScript",
+    "JavaScript",
     "Luau",
-    "React",
     "Next.js",
-    "Roblox Development",
+    "Docker",
+    "GitLab CI/CD",
   ],
-  authors: [{ name: "Luka" }],
-  creator: "Luka",
+  authors: [{ name: "Luka Pajkanovic" }],
+  creator: "Luka Pajkanovic",
   openGraph: {
-    title: "Luka — Developer",
-    description: "Developer portfolio. C++ / Python / JavaScript / Luau.",
-    url: "https://luka.dev",
-    siteName: "Luka — Developer",
+    title: "Luka Pajkanovic — Systems & Web Developer",
+    description: "Systems, Web Architecture & Game Engineering. C++ / Python / TypeScript / Luau.",
+    url: "https://gitlab.com/Lukk1a/portfolio",
+    siteName: "Luka Pajkanovic Portfolio",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luka — Developer",
-    description: "Developer portfolio. C++ / Python / JavaScript / Luau.",
+    title: "Luka Pajkanovic — Systems & Web Developer",
+    description: "Systems, Web Architecture & Game Engineering. C++ / Python / TypeScript / Luau.",
   },
   robots: {
     index: true,
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#080808",
+  themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
 };
@@ -65,7 +66,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark`}>
-      <body className="min-h-screen bg-[#080808] text-[#f5f5f7] font-sans antialiased selection:bg-white/20 selection:text-white">
+      <body className="min-h-screen bg-black text-[#ededed] font-sans antialiased">
         {children}
       </body>
     </html>

@@ -11,9 +11,10 @@ interface Section {
 
 const sections: Section[] = [
   { id: "hero", label: "Overview" },
-  { id: "skills", label: "Skills & Stack" },
-  { id: "about", label: "About" },
-  { id: "learning", label: "Currently Learning" },
+  { id: "projects", label: "Projects" },
+  { id: "skills", label: "Stack" },
+  { id: "about", label: "Principles" },
+  { id: "learning", label: "Radar" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -38,7 +39,7 @@ export function ScrollIndicator() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial check
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -48,7 +49,7 @@ export function ScrollIndicator() {
       aria-label="Section indicators"
       className="fixed right-6 lg:right-8 top-1/2 -translate-y-1/2 z-40 hidden md:flex items-center justify-center select-none"
     >
-      <div className="flex flex-col items-center justify-center gap-2.5 p-2 rounded-2xl bg-[#0c0c0c]/70 backdrop-blur-md border border-white/[0.08] shadow-2xl w-11">
+      <div className="flex flex-col items-center justify-center gap-2.5 p-2 rounded-2xl bg-zinc-950/80 backdrop-blur-md border border-white/[0.08] shadow-card w-11">
         {sections.map(({ id, label }) => {
           const isActive = activeSection === id;
           const isHovered = hoveredSection === id;
@@ -72,7 +73,7 @@ export function ScrollIndicator() {
                     ? "rgba(255, 255, 255, 0.6)"
                     : "rgba(255, 255, 255, 0.2)",
                   boxShadow: isActive
-                    ? "0 0 12px rgba(255, 255, 255, 0.55), 0 0 4px rgba(255, 255, 255, 0.3)"
+                    ? "0 0 10px rgba(255, 255, 255, 0.6), 0 0 2px rgba(255, 255, 255, 0.3)"
                     : "none",
                 }}
                 transition={{

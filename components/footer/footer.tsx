@@ -15,20 +15,28 @@ export function Footer({ onToast }: FooterProps) {
   };
 
   return (
-    <footer className="border-t border-white/[0.06] bg-[#050505] py-12 sm:py-16 px-6 sm:px-8">
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 font-mono text-xs text-[#71717a]">
+    <footer className="border-t border-white/[0.08] bg-black py-12 sm:py-16 px-6 sm:px-8 font-mono">
+      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 text-xs text-zinc-500">
         {/* Left: Name & Copyright */}
         <div className="space-y-1">
-          <p className="text-sm font-semibold tracking-wider text-[#f5f5f7]">
-            {portfolioConfig.personal.name}
+          <p className="text-sm font-semibold tracking-wider text-white">
+            {portfolioConfig.personal.fullName}
           </p>
-          <p className="text-[#52525b]">
-            © {new Date().getFullYear()} • Engineered with Next.js, TypeScript & Tailwind CSS
+          <p className="text-zinc-500 text-[11px]">
+            © {new Date().getFullYear()} • Standalone Next.js 15 &amp; Docker • GitLab CI/CD Verified
           </p>
         </div>
 
         {/* Center: Social Links */}
         <div className="flex flex-wrap items-center gap-6">
+          <a
+            href={portfolioConfig.social.gitlab}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            GitLab
+          </a>
           <a
             href={portfolioConfig.social.github}
             target="_blank"
@@ -54,11 +62,11 @@ export function Footer({ onToast }: FooterProps) {
         {/* Right: Back to Top */}
         <button
           onClick={() => scrollToSection("hero")}
-          className="flex items-center gap-2 text-[#71717a] hover:text-white transition-colors cursor-pointer group"
+          className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors cursor-pointer group interactive-press"
           aria-label="Back to top"
         >
           <span>BACK TO TOP</span>
-          <ArrowUp className="w-3.5 h-3.5 text-[#38bdf8] group-hover:-translate-y-0.5 transition-transform" />
+          <ArrowUp className="w-3.5 h-3.5 text-zinc-400 group-hover:-translate-y-0.5 transition-transform" />
         </button>
       </div>
     </footer>

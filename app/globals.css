@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #080808;
-  --foreground: #f5f5f7;
+  --background: #000000;
+  --foreground: #ededed;
   --muted: #a1a1aa;
   --border: rgba(255, 255, 255, 0.08);
   --border-focus: rgba(255, 255, 255, 0.25);
-  --accent: #38bdf8;
+  --accent: #ffffff;
 }
 
 * {
@@ -40,36 +40,38 @@ body {
 
 /* Custom minimal scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #080808;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.12);
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* Subtle background grain / technical grid effect */
-.bg-grid-pattern {
-  background-size: 40px 40px;
+/* Subtle background grid */
+.bg-grid-subtle {
+  background-size: 48px 48px;
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }
 
-/* Monospace technical styling */
-.font-mono-tag {
-  font-family: var(--font-geist-mono), monospace;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+/* Hairline border utility */
+.border-hairline {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.border-hairline-hover:hover {
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 /* Emil Kowalski active & tactile response */
@@ -78,15 +80,15 @@ body {
 }
 
 .interactive-press:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
 }
 
-/* Keyboard focus standard compliant with web-design-guidelines */
+/* Keyboard focus standard */
 button:focus-visible,
 a:focus-visible,
 input:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4), 0 0 0 4px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5), 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
 @media (prefers-reduced-motion: reduce) {
