@@ -3,7 +3,6 @@
 import * as React from "react";
 import { portfolioConfig } from "@/config/portfolio";
 import { scrollToSection } from "@/lib/utils";
-import { Magnetic } from "@/components/ui/magnetic";
 import { Menu } from "lucide-react";
 
 interface NavbarProps {
@@ -14,8 +13,16 @@ export function Navbar({ onOpenMobileMenu }: NavbarProps) {
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -33,43 +40,41 @@ export function Navbar({ onOpenMobileMenu }: NavbarProps) {
       <div className="max-w-6xl mx-auto px-6 sm:px-8 flex items-center justify-between">
         {/* Brand / Name */}
         <div className="flex items-center gap-4">
-          <Magnetic strength={0.2}>
-            <button
-              onClick={() => scrollToSection("hero")}
-              className="group flex items-center gap-2 text-left focus:outline-none cursor-pointer py-1"
-              aria-label="Scroll to top"
-            >
-              <span className="font-mono text-sm tracking-wider text-white font-semibold group-hover:text-zinc-300 transition-colors">
-                {portfolioConfig.personal.name}
-              </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white transition-colors" />
-            </button>
-          </Magnetic>
+          <button
+            onClick={() => scrollToSection("hero")}
+            className="group flex items-center gap-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white/25 rounded-md px-1 py-0.5 cursor-pointer"
+            aria-label="Scroll to top"
+          >
+            <span className="font-mono text-sm tracking-wider text-white font-semibold group-hover:text-zinc-300 transition-colors">
+              {portfolioConfig.personal.name}
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white transition-colors" />
+          </button>
         </div>
 
         {/* Desktop Nav Items */}
         <nav className="hidden md:flex items-center gap-8 font-mono text-xs text-zinc-400 tracking-wider uppercase">
           <button
             onClick={() => scrollToSection("skills")}
-            className="hover:text-white transition-colors cursor-pointer interactive-press"
+            className="hover:text-white transition-colors cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/25 rounded px-1.5 py-0.5"
           >
             STACK
           </button>
           <button
             onClick={() => scrollToSection("about")}
-            className="hover:text-white transition-colors cursor-pointer interactive-press"
+            className="hover:text-white transition-colors cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/25 rounded px-1.5 py-0.5"
           >
             PRINCIPLES
           </button>
           <button
             onClick={() => scrollToSection("learning")}
-            className="hover:text-white transition-colors cursor-pointer interactive-press"
+            className="hover:text-white transition-colors cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/25 rounded px-1.5 py-0.5"
           >
             RADAR
           </button>
           <button
             onClick={() => scrollToSection("contact")}
-            className="hover:text-white transition-colors cursor-pointer interactive-press"
+            className="hover:text-white transition-colors cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/25 rounded px-1.5 py-0.5"
           >
             CONTACT
           </button>
@@ -79,7 +84,7 @@ export function Navbar({ onOpenMobileMenu }: NavbarProps) {
         <div className="flex items-center md:hidden">
           <button
             onClick={onOpenMobileMenu}
-            className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] text-zinc-400 hover:text-white interactive-press"
+            className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] text-zinc-400 hover:text-white interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/25"
             aria-label="Open mobile menu"
           >
             <Menu className="w-4 h-4" />

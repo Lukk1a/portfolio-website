@@ -46,7 +46,7 @@ export function HeroSection() {
       >
         <motion.div variants={itemVariants} className="space-y-3">
           <span className="font-mono text-xs tracking-widest text-zinc-500 uppercase">
-            {"// SOFTWARE & SYSTEMS DEVELOPER"}
+            {"// SYSTEMS & WEB ARCHITECTURE"}
           </span>
           <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter text-white leading-none">
             {portfolioConfig.personal.fullName}
@@ -62,40 +62,42 @@ export function HeroSection() {
           </p>
         </motion.div>
 
-        {/* Core Tech Pills */}
-        <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-2 pt-2">
+        {/* Engineering Specializations */}
+        <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-2 pt-1">
           {portfolioConfig.personal.coreHighlights.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1.5 rounded-md bg-white/[0.03] border border-white/[0.08] text-xs font-mono text-zinc-300"
+              className="px-3 py-1.5 rounded-lg bg-zinc-950/80 border border-white/[0.08] text-xs font-mono text-zinc-300"
             >
               {tech}
             </span>
           ))}
         </motion.div>
 
-        {/* Action Buttons */}
+        {/* Action Buttons with Button-in-Button Architecture */}
         <motion.div variants={itemVariants} className="pt-4 flex items-center gap-4">
           <Magnetic strength={0.2}>
             <button
               onClick={() => scrollToSection("skills")}
-              className="px-5 py-2.5 rounded-lg bg-white text-black font-medium text-xs font-mono tracking-wider hover:bg-zinc-200 transition-colors interactive-press cursor-pointer flex items-center gap-2"
+              className="group pl-5 pr-3 py-2 rounded-full bg-white text-black font-medium text-xs font-mono tracking-wider hover:bg-zinc-200 transition-all duration-150 interactive-press cursor-pointer flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
-              <span>VIEW STACK</span>
-              <ArrowDown className="w-3.5 h-3.5" />
+              <span>VIEW ARCHITECTURE</span>
+              <div className="w-6 h-6 rounded-full bg-black/10 flex items-center justify-center group-hover:translate-y-0.5 transition-transform duration-150">
+                <ArrowDown className="w-3 h-3 text-black" />
+              </div>
             </button>
           </Magnetic>
 
           <button
             onClick={() => scrollToSection("contact")}
-            className="px-5 py-2.5 rounded-lg bg-transparent border border-white/[0.12] hover:border-white/[0.25] text-zinc-300 hover:text-white text-xs font-mono tracking-wider transition-colors interactive-press cursor-pointer"
+            className="px-5 py-2.5 rounded-full bg-transparent border border-white/[0.12] hover:border-white/[0.25] text-zinc-300 hover:text-white text-xs font-mono tracking-wider transition-colors interactive-press cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
           >
             CONTACT
           </button>
         </motion.div>
       </motion.div>
 
-      {/* Bottom Status Line — info only, no duplicate CTA */}
+      {/* Bottom Status Line */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -106,7 +108,7 @@ export function HeroSection() {
           <Code2 className="w-3.5 h-3.5" />
           <span>ZERO-OVERHEAD ABSTRACTIONS</span>
         </div>
-        <span>{new Date().getFullYear()} — feat/linear-minimalist</span>
+        <span>{new Date().getFullYear()} — STANDALONE DOCKER &amp; CI/CD</span>
       </motion.div>
     </section>
   );

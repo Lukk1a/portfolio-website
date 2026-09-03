@@ -56,7 +56,7 @@ export const portfolioConfig: PortfolioConfig = {
     role: "Systems & Web Developer",
     bio: "I build high-performance software, systems-level logic, scalable web architectures, and interactive game mechanics from scratch.",
     statement: "Focused on deterministic engineering, clean memory models, zero-overhead abstractions, and tactile digital interfaces.",
-    coreHighlights: ["C++", "Python", "TypeScript", "JavaScript", "Luau", "Next.js", "Docker"],
+    coreHighlights: ["Native Memory Models", "Async Task Pipelines", "Deterministic Simulation", "Type-Safe Architecture"],
   },
 
   social: {

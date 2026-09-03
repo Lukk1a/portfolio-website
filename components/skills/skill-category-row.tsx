@@ -9,7 +9,7 @@ interface SkillCategoryRowProps {
 
 export function SkillCategoryRow({ category }: SkillCategoryRowProps) {
   return (
-    <div className="py-8 border-b border-white/[0.06] last:border-b-0">
+    <div className="py-8">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
         {/* Category Header (Left column) */}
         <div className="md:col-span-4 space-y-1.5">
