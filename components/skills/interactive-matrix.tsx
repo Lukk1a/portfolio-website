@@ -4,7 +4,7 @@ import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { portfolioConfig } from "@/config/portfolio";
 import { Magnetic } from "@/components/ui/magnetic";
-import { Terminal, Code2, Cpu } from "lucide-react";
+import { Terminal, Code2 } from "lucide-react";
 
 export function InteractiveMatrix() {
   const [activeLang, setActiveLang] = React.useState<string | null>("C++");
@@ -17,17 +17,6 @@ export function InteractiveMatrix() {
     <div className="relative w-full rounded-2xl border border-white/[0.08] bg-zinc-950/60 p-2 sm:p-2.5 mb-16 overflow-hidden">
       {/* Inner Core Container (Double-Bezel Architecture) */}
       <div className="relative rounded-xl border border-white/[0.06] bg-[#0c0c0c]/90 p-6 sm:p-8 overflow-hidden backdrop-blur-md">
-        {/* Top Header */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-b border-white/[0.06] pb-4 mb-8">
-          <div className="flex items-center gap-2.5 font-mono text-xs text-zinc-400 tracking-widest uppercase">
-            <Cpu className="w-3.5 h-3.5 text-sky-400" />
-            <span>Core Language Constellation</span>
-          </div>
-          <span className="font-mono text-[11px] text-zinc-500">
-            [ HOVER OR FOCUS TO INSPECT SPEC ]
-          </span>
-        </div>
-
         {/* Typographic Matrix Layout */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[260px]">
           {/* Typographic Cloud with Magnetic Pull (Left) */}
