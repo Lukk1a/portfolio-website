@@ -19,7 +19,7 @@ export function ContactSection({ onToast }: ContactSectionProps) {
 
   return (
     <section id="contact" className="py-24 sm:py-36 px-6 sm:px-8 max-w-6xl mx-auto border-t border-white/[0.08]">
-      <SectionMarker number="05" label="COMMUNICATION &amp; COLLABORATION" />
+      <SectionMarker number="04" label="COMMUNICATION &amp; COLLABORATION" />
 
       <div className="space-y-12 sm:space-y-16">
         {/* Main CTA Typography with blur-to-focus reveal */}

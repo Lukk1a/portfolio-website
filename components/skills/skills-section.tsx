@@ -8,7 +8,7 @@ import { SkillCategoryRow } from "./skill-category-row";
 export function SkillsSection() {
   return (
     <section id="skills" className="py-24 sm:py-32 px-6 sm:px-8 max-w-6xl mx-auto border-t border-white/[0.08]">
-      <SectionMarker number="02" label="TECHNICAL STACK &amp; CAPABILITIES" />
+      <SectionMarker number="01" label="TECHNICAL STACK &amp; CAPABILITIES" />
 
       {/* Section Title */}
       <motion.div

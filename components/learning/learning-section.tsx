@@ -8,7 +8,7 @@ import { Compass, Sparkles } from "lucide-react";
 export function LearningSection() {
   return (
     <section id="learning" className="py-24 sm:py-32 px-6 sm:px-8 max-w-6xl mx-auto border-t border-white/[0.08]">
-      <SectionMarker number="04" label="ACTIVE RESEARCH RADAR &amp; SPECIALIZATION" />
+      <SectionMarker number="03" label="ACTIVE RESEARCH RADAR &amp; SPECIALIZATION" />
 
       <motion.div
         initial={{ opacity: 0, y: 14, filter: "blur(4px)" }}

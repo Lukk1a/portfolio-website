@@ -35,7 +35,7 @@ export function AboutSection() {
 
   return (
     <section id="about" className="py-24 sm:py-32 px-6 sm:px-8 max-w-6xl mx-auto border-t border-white/[0.08]">
-      <SectionMarker number="03" label="ENGINEERING PRINCIPLES &amp; SYSTEMS DISCIPLINE" />
+      <SectionMarker number="02" label="ENGINEERING PRINCIPLES &amp; SYSTEMS DISCIPLINE" />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Core Statement (Left) */}
