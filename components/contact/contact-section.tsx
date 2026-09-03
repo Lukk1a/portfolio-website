@@ -30,9 +30,6 @@ export function ContactSection({ onToast }: ContactSectionProps) {
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="space-y-4"
         >
-          <div className="font-mono text-xs text-zinc-500 font-medium tracking-wider">
-            {"// INITIATE COMMUNICATION"}
-          </div>
           <h2 className="text-4xl sm:text-7xl md:text-8xl font-bold tracking-tighter text-white leading-none select-none">
             LET&apos;S BUILD <br />
             SOMETHING SOLID.

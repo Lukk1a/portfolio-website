@@ -35,7 +35,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] flex flex-col justify-between pt-36 pb-16 sm:pt-44 sm:pb-20 px-6 sm:px-8 max-w-6xl mx-auto"
+      className="relative min-h-[90vh] flex flex-col justify-between pt-24 pb-16 sm:pt-28 sm:pb-20 px-6 sm:px-8 max-w-6xl mx-auto"
     >
       {/* Main Hero Body */}
       <motion.div
@@ -58,10 +58,7 @@ export function HeroSection() {
             {portfolioConfig.personal.role}
           </p>
           <p className="text-base sm:text-lg text-zinc-400 font-light leading-relaxed max-w-2xl">
-            {portfolioConfig.personal.bio}
-          </p>
-          <p className="text-xs sm:text-sm text-zinc-500 font-mono leading-relaxed max-w-2xl">
-            {portfolioConfig.personal.statement}
+            {portfolioConfig.personal.bio} {portfolioConfig.personal.statement}
           </p>
         </motion.div>
 
@@ -79,13 +76,15 @@ export function HeroSection() {
 
         {/* Action Buttons */}
         <motion.div variants={itemVariants} className="pt-4 flex items-center gap-4">
-          <button
-            onClick={() => scrollToSection("skills")}
-            className="px-5 py-2.5 rounded-lg bg-white text-black font-medium text-xs font-mono tracking-wider hover:bg-zinc-200 transition-colors interactive-press cursor-pointer flex items-center gap-2"
-          >
-            <span>VIEW STACK</span>
-            <ArrowDown className="w-3.5 h-3.5" />
-          </button>
+          <Magnetic strength={0.2}>
+            <button
+              onClick={() => scrollToSection("skills")}
+              className="px-5 py-2.5 rounded-lg bg-white text-black font-medium text-xs font-mono tracking-wider hover:bg-zinc-200 transition-colors interactive-press cursor-pointer flex items-center gap-2"
+            >
+              <span>VIEW STACK</span>
+              <ArrowDown className="w-3.5 h-3.5" />
+            </button>
+          </Magnetic>
 
           <button
             onClick={() => scrollToSection("contact")}
@@ -96,27 +95,18 @@ export function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Bottom Status Line */}
+      {/* Bottom Status Line — info only, no duplicate CTA */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.4 }}
-        className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/[0.08] font-mono text-xs text-zinc-500 tracking-wider uppercase"
+        className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/[0.08] font-mono text-xs text-zinc-600 tracking-wider uppercase"
       >
         <div className="flex items-center gap-2">
-          <Code2 className="w-3.5 h-3.5 text-zinc-400" />
+          <Code2 className="w-3.5 h-3.5" />
           <span>ZERO-OVERHEAD ABSTRACTIONS</span>
         </div>
-
-        <Magnetic strength={0.2}>
-          <button
-            onClick={() => scrollToSection("skills")}
-            className="group flex items-center gap-2 text-zinc-400 hover:text-white transition-colors cursor-pointer"
-          >
-            <span>SCROLL TO STACK</span>
-            <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
-          </button>
-        </Magnetic>
+        <span>{new Date().getFullYear()} — feat/linear-minimalist</span>
       </motion.div>
     </section>
   );

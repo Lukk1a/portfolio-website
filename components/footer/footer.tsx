@@ -2,7 +2,8 @@
 
 import { portfolioConfig } from "@/config/portfolio";
 import { scrollToSection } from "@/lib/utils";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Mail } from "lucide-react";
+import { GithubIcon, GitlabIcon, DiscordIcon } from "@/components/ui/icons";
 
 interface FooterProps {
   onToast: (msg: string) => void;
@@ -23,39 +24,43 @@ export function Footer({ onToast }: FooterProps) {
             {portfolioConfig.personal.fullName}
           </p>
           <p className="text-zinc-500 text-[11px]">
-            © {new Date().getFullYear()} • Standalone Next.js 15 &amp; Docker • GitLab CI/CD Verified
+            © {new Date().getFullYear()} Luka Pajkanovic. All rights reserved.
           </p>
         </div>
 
         {/* Center: Social Links */}
-        <div className="flex flex-wrap items-center gap-6">
+        <div className="flex flex-wrap items-center gap-5 sm:gap-6">
           <a
             href={portfolioConfig.social.gitlab}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition-colors"
+            className="flex items-center gap-1.5 hover:text-white transition-colors"
           >
-            GitLab
+            <GitlabIcon className="w-3.5 h-3.5 text-zinc-400" />
+            <span>GitLab</span>
           </a>
           <a
             href={portfolioConfig.social.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition-colors"
+            className="flex items-center gap-1.5 hover:text-white transition-colors"
           >
-            GitHub
+            <GithubIcon className="w-3.5 h-3.5 text-zinc-400" />
+            <span>GitHub</span>
           </a>
           <button
             onClick={() => copyValue(portfolioConfig.social.email, "Email")}
-            className="hover:text-white transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer"
           >
-            Email
+            <Mail className="w-3.5 h-3.5 text-zinc-400" />
+            <span>Email</span>
           </button>
           <button
             onClick={() => copyValue(portfolioConfig.social.discord, "Discord")}
-            className="hover:text-white transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer"
           >
-            Discord
+            <DiscordIcon className="w-3.5 h-3.5 text-zinc-400" />
+            <span>Discord</span>
           </button>
         </div>
 

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { portfolioConfig } from "@/config/portfolio";
 import { SectionMarker } from "@/components/ui/section-marker";
-import { Compass, Sparkles } from "lucide-react";
+import { Compass } from "lucide-react";
 
 export function LearningSection() {
   return (
@@ -35,17 +35,21 @@ export function LearningSection() {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ delay: idx * 0.06, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -2 }}
-            className="group relative p-6 sm:p-7 rounded-xl bg-zinc-950/70 border border-white/[0.08] hover:border-white/[0.22] transition-all duration-150 flex flex-col justify-between shadow-card"
+            className="group relative p-6 sm:p-7 rounded-xl bg-zinc-950/70 border border-white/[0.08] hover:border-white/[0.22] transition-all duration-150 flex flex-col justify-between"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between font-mono text-[11px] text-zinc-400">
                 <span className="text-zinc-300 font-medium">{item.area}</span>
-                <span className="px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-300 font-mono text-[10px]">
+                <span className={`px-2.5 py-0.5 rounded-full border font-mono text-[10px] ${
+                  item.status === "In Progress"
+                    ? "bg-white/[0.06] border-white/[0.15] text-white"
+                    : "bg-white/[0.04] border-white/[0.08] text-zinc-300"
+                }`}>
                   {item.status}
                 </span>
               </div>
 
-              <h3 className="text-base sm:text-lg font-semibold text-white tracking-tight group-hover:text-zinc-200 transition-colors">
+              <h3 className="text-base sm:text-lg font-semibold text-white tracking-tight">
                 {item.topic}
               </h3>
 
@@ -54,12 +58,9 @@ export function LearningSection() {
               </p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-zinc-500 group-hover:text-zinc-300 transition-colors font-mono">
-              <div className="flex items-center gap-1.5">
-                <Compass className="w-3.5 h-3.5 text-zinc-400" />
-                <span>RESEARCH LOG</span>
-              </div>
-              <Sparkles className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
+            <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center gap-1.5 text-xs text-zinc-600 group-hover:text-zinc-400 transition-colors font-mono">
+              <Compass className="w-3.5 h-3.5" />
+              <span>{item.area.toUpperCase()}</span>
             </div>
           </motion.div>
         ))}
