@@ -34,7 +34,7 @@ export function Footer({ onToast }: FooterProps) {
             href={portfolioConfig.social.gitlab}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 hover:text-white transition-colors"
+            className="flex items-center gap-1.5 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded px-1.5 py-0.5"
           >
             <GitlabIcon className="w-3.5 h-3.5 text-zinc-400" />
             <span>GitLab</span>
@@ -43,21 +43,21 @@ export function Footer({ onToast }: FooterProps) {
             href={portfolioConfig.social.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 hover:text-white transition-colors"
+            className="flex items-center gap-1.5 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded px-1.5 py-0.5"
           >
             <GithubIcon className="w-3.5 h-3.5 text-zinc-400" />
             <span>GitHub</span>
           </a>
           <button
             onClick={() => copyValue(portfolioConfig.social.email, "Email")}
-            className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded px-1.5 py-0.5"
           >
             <Mail className="w-3.5 h-3.5 text-zinc-400" />
             <span>Email</span>
           </button>
           <button
             onClick={() => copyValue(portfolioConfig.social.discord, "Discord")}
-            className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded px-1.5 py-0.5"
           >
             <DiscordIcon className="w-3.5 h-3.5 text-zinc-400" />
             <span>Discord</span>
@@ -67,7 +67,7 @@ export function Footer({ onToast }: FooterProps) {
         {/* Right: Back to Top */}
         <button
           onClick={() => scrollToSection("hero")}
-          className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors cursor-pointer group interactive-press"
+          className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors cursor-pointer group interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded px-2 py-1"
           aria-label="Back to top"
         >
           <span>BACK TO TOP</span>

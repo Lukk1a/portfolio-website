@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionMarker } from "@/components/ui/section-marker";
-import { Cpu, Globe, Gamepad2, Wrench, CheckCircle2 } from "lucide-react";
+import { Cpu, Globe, Gamepad2, Wrench } from "lucide-react";
 
 export function AboutSection() {
   return (
@@ -35,10 +35,12 @@ export function AboutSection() {
               "Linear arena memory allocation preventing fragmentation",
               "Sub-100ms interaction feedback across web surfaces",
               "Zero-dependency core logic where latency is critical",
-            ].map((rule) => (
-              <div key={rule} className="flex items-start gap-2.5 text-xs text-zinc-400 font-mono">
-                <CheckCircle2 className="w-3.5 h-3.5 text-zinc-300 flex-shrink-0 mt-0.5" />
-                <span>{rule}</span>
+            ].map((rule, idx) => (
+              <div key={rule} className="flex items-start gap-3 text-xs text-zinc-400 font-mono">
+                <span className="text-zinc-500 font-semibold flex-shrink-0">
+                  {`0${idx + 1} //`}
+                </span>
+                <span className="leading-relaxed">{rule}</span>
               </div>
             ))}
           </div>

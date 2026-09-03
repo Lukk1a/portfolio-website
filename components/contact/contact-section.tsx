@@ -43,28 +43,42 @@ export function ContactSection({ onToast }: ContactSectionProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
           {/* Email Action */}
           <Magnetic strength={0.15}>
-            <button
-              onClick={() => copyValue(portfolioConfig.social.email, "Email")}
-              className="group p-6 rounded-2xl bg-zinc-950/70 hover:bg-zinc-900 border border-white/[0.08] hover:border-white/[0.22] transition-all duration-150 flex flex-col justify-between min-h-[160px] h-full text-left w-full cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
-              aria-label="Copy direct email to clipboard"
-            >
+            <div className="group p-6 rounded-2xl bg-zinc-950/70 hover:bg-zinc-900 border border-white/[0.08] hover:border-white/[0.22] transition-all duration-150 flex flex-col justify-between min-h-[160px] h-full relative shadow-card">
               <div className="flex items-center justify-between text-xs font-mono text-zinc-500 w-full">
                 <div className="flex items-center gap-2">
                   <Mail className="w-3.5 h-3.5 text-zinc-400" />
                   <span>DIRECT EMAIL</span>
                 </div>
-                <span className="text-[10px] text-zinc-600 group-hover:text-zinc-300 transition-colors">
-                  [COPY]
-                </span>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    copyValue(portfolioConfig.social.email, "Email");
+                  }}
+                  className="px-2 py-0.5 rounded bg-white/[0.05] hover:bg-white/[0.15] text-[10px] text-zinc-400 hover:text-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40"
+                  title="Copy email to clipboard"
+                  aria-label="Copy email address"
+                >
+                  COPY
+                </button>
               </div>
 
-              <div className="flex items-center justify-between group-hover:text-white transition-colors pt-4 w-full">
-                <span className="text-xl font-semibold tracking-tight text-zinc-200">
-                  EMAIL
-                </span>
-                <Copy className="w-4 h-4 text-zinc-400 group-hover:scale-110 transition-transform" />
-              </div>
-            </button>
+              <a
+                href={`mailto:${portfolioConfig.social.email}`}
+                className="flex items-center justify-between group-hover:text-white transition-colors pt-4 w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded-lg"
+                aria-label="Send an email to Luka"
+              >
+                <div>
+                  <span className="text-xl font-semibold tracking-tight text-zinc-200 block">
+                    EMAIL
+                  </span>
+                  <span className="text-[11px] font-mono text-zinc-500 group-hover:text-zinc-400 transition-colors">
+                    SEND MESSAGE ↗
+                  </span>
+                </div>
+                <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
+            </div>
           </Magnetic>
 
           {/* GitLab Action */}
@@ -141,9 +155,14 @@ export function ContactSection({ onToast }: ContactSectionProps) {
               </div>
 
               <div className="flex items-center justify-between group-hover:text-white transition-colors pt-4">
-                <span className="text-xl font-semibold tracking-tight text-zinc-200">
-                  DISCORD
-                </span>
+                <div>
+                  <span className="text-xl font-semibold tracking-tight text-zinc-200 block">
+                    DISCORD
+                  </span>
+                  <span className="text-[11px] font-mono text-zinc-500 group-hover:text-zinc-400 transition-colors">
+                    @{portfolioConfig.social.discord}
+                  </span>
+                </div>
                 <Copy className="w-4 h-4 text-zinc-400 group-hover:scale-110 transition-transform" />
               </div>
             </button>

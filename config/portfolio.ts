@@ -71,55 +71,42 @@ export const portfolioConfig: PortfolioConfig = {
   matrixLanguages: [
     {
       name: "C++",
-      domain: "Native Systems & Performance",
-      detail: "Low-level memory management, arena allocators, deterministic game loops & high-performance computing.",
-      levelSnippet: "#include <memory>",
+      domain: "Native Systems & High-Perf",
+      detail: "Low-level memory management, linear arena allocators, deterministic game loops & cache-friendly SIMD layouts.",
+      levelSnippet: "LinearArena::alloc<Packet>(sizeof(T));",
     },
     {
       name: "Python",
-      domain: "Automation & Scripting",
-      detail: "Backend services, async pipelines, CLI tooling, data manipulation, automation workflows & rapid prototyping.",
-      levelSnippet: "def execute_pipeline():",
+      domain: "Automation, CLI & Services",
+      detail: "Distributed task workers, async queues, scraping pipelines, structured logging, and automation workflows.",
+      levelSnippet: "async for batch in stream.consume():",
     },
     {
       name: "JavaScript",
-      domain: "Web & Runtime Engines",
-      detail: "Asynchronous I/O, event-driven programming, modern DOM APIs, and full-stack ecosystem tooling.",
-      levelSnippet: "const runtime = await init();",
+      domain: "Web Platform & Event Loop",
+      detail: "Non-blocking event architecture, DOM reconciliation, modern web platform APIs, and client runtimes.",
+      levelSnippet: "const [head, ...tail] = buffer.drain();",
     },
     {
       name: "TypeScript",
       domain: "Type-Safe Architecture",
-      detail: "Strict type systems, robust interfaces, scalable full-stack applications & clean contracts.",
-      levelSnippet: "type SystemContract<T> = ...",
+      detail: "Strict type contracts, generic compile-time constraints, scalable full-stack applications & zero-leak contracts.",
+      levelSnippet: "type Contract<T> = StrictSchema<T>;",
     },
     {
       name: "Luau",
-      domain: "Game Scripting & Roblox Engine",
-      detail: "High-performance embedded scripting, type inference, real-time client/server state replication.",
-      levelSnippet: "local RunService: RunService = ...",
+      domain: "Game Scripting & Netcode",
+      detail: "Delta-compressed client/server replication, latency compensation, and authoritative state machines.",
+      levelSnippet: "Replicator:delta_sync(state, prev_tick);",
     },
   ],
 
-  // Structured Technology Index
+  // Structured Technology Index (Non-duplicate domains)
   skillCategories: [
     {
-      id: "languages",
-      index: "01",
-      title: "CORE LANGUAGES",
-      description: "Primary programming languages for native systems, asynchronous services, full-stack web, and game engines.",
-      items: [
-        { name: "C++", category: "languages", domain: "Native Systems & High-Perf", highlight: true },
-        { name: "Python", category: "languages", domain: "Automation, CLI & Services", highlight: true },
-        { name: "TypeScript", category: "languages", domain: "Type-Safe Architecture", highlight: true },
-        { name: "JavaScript", category: "languages", domain: "Web Platform & Event Loop", highlight: true },
-        { name: "Luau", category: "languages", domain: "Roblox Game Engine & Netcode", highlight: true },
-      ],
-    },
-    {
       id: "web",
-      index: "02",
-      title: "WEB & PLATFORMS",
+      index: "01",
+      title: "WEB & RUNTIMES",
       description: "Modern frameworks, server runtime environments, and styling libraries for fast, responsive web systems.",
       items: [
         { name: "React 19", category: "web", domain: "Component Architecture", highlight: true },
@@ -133,8 +120,8 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       id: "tools",
-      index: "03",
-      title: "DEVOPS & ENVIRONMENT",
+      index: "02",
+      title: "DEVOPS & INFRASTRUCTURE",
       description: "Containerization, continuous integration, version control, and Linux systems administration.",
       items: [
         { name: "GitLab CI/CD", category: "tools", domain: "Automated Multi-Stage Pipelines", highlight: true },
@@ -148,8 +135,8 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       id: "other",
-      index: "04",
-      title: "SYSTEMS & SPECIALIZATIONS",
+      index: "03",
+      title: "GAME & SYSTEMS SPECIALIZATIONS",
       description: "Engine mechanics, client/server replication, game architecture, and workflow automation.",
       items: [
         { name: "Roblox Architecture", category: "other", domain: "State Replication & Netcode", highlight: true },

@@ -66,7 +66,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark`} style={{ background: "#000000", colorScheme: "dark" }}>
-      <body className="min-h-screen bg-black text-[#ededed] font-sans antialiased" style={{ background: "#000000" }}>
+      <body className="min-h-[100dvh] bg-black text-[#ededed] font-sans antialiased" style={{ background: "#000000" }}>
         {children}
       </body>
     </html>

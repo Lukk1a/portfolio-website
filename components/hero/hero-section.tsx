@@ -35,7 +35,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] flex flex-col justify-between pt-24 pb-16 sm:pt-28 sm:pb-20 px-6 sm:px-8 max-w-6xl mx-auto"
+      className="relative min-h-[90dvh] flex flex-col justify-between pt-24 pb-16 sm:pt-28 sm:pb-20 px-6 sm:px-8 max-w-6xl mx-auto"
     >
       {/* Main Hero Body */}
       <motion.div

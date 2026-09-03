@@ -6,6 +6,8 @@ import { GithubIcon, GitlabIcon, DiscordIcon } from "@/components/ui/icons";
 import { portfolioConfig } from "@/config/portfolio";
 import { scrollToSection } from "@/lib/utils";
 
+import * as React from "react";
+
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
@@ -13,6 +15,17 @@ interface MobileMenuProps {
 }
 
 export function MobileMenu({ isOpen, onClose, onToast }: MobileMenuProps) {
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   const handleNav = (sectionId: string) => {
     scrollToSection(sectionId);
     onClose();
