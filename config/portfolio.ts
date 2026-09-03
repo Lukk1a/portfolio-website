@@ -27,6 +27,7 @@ export interface CurrentlyLearningItem {
   area: string;
   status: "Exploring" | "In Progress" | "Deep Dive";
   note: string;
+  milestone: string;
 }
 
 export interface PortfolioConfig {
@@ -155,6 +156,7 @@ export const portfolioConfig: PortfolioConfig = {
       area: "Systems Engineering",
       status: "In Progress",
       note: "Exploring lock-free queues, atomic operations, cache-line bouncing prevention, and memory order semantics.",
+      milestone: "Profiling SPSC lock-free ring buffer in C++20",
     },
     {
       id: "learning-2",
@@ -162,6 +164,7 @@ export const portfolioConfig: PortfolioConfig = {
       area: "Graphics & Simulation",
       status: "Exploring",
       note: "Investigating modern compute shaders, vertex/fragment buffers, and spatial acceleration trees (BVH).",
+      milestone: "Building compute shader pipeline for particle simulation",
     },
     {
       id: "learning-3",
@@ -169,6 +172,7 @@ export const portfolioConfig: PortfolioConfig = {
       area: "Infrastructure",
       status: "Exploring",
       note: "Researching raft consensus, deterministic state replication across unreliable networks, and edge caching.",
+      milestone: "Prototyping state replication over unreliable UDP",
     },
   ],
 };

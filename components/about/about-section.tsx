@@ -70,9 +70,29 @@ export function AboutSection() {
                 C++20 / SIMD
               </span>
             </div>
-            <p className="text-xs text-zinc-400 leading-relaxed font-light mb-4">
+            <p className="text-xs text-zinc-400 leading-relaxed font-light mb-2">
               Data-oriented architectures designed around CPU cache lines, deterministic fixed-timestep simulation loops, and custom contiguous memory arenas preventing heap churn.
             </p>
+
+            {/* Contiguous Memory Arena Visualizer */}
+            <div className="my-3 p-3 rounded-xl bg-black/80 border border-white/[0.08] font-mono text-[10px] space-y-2">
+              <div className="flex items-center justify-between text-zinc-500 text-[9px]">
+                <span className="text-zinc-400">LINEAR_ARENA_LAYOUT</span>
+                <span className="text-emerald-400">HEAP_FRAGMENTATION: 0%</span>
+              </div>
+              <div className="grid grid-cols-12 gap-1 h-2 rounded bg-zinc-900/90 overflow-hidden p-0.5 border border-white/[0.05]">
+                <div className="col-span-4 bg-sky-400/80 rounded-sm" />
+                <div className="col-span-3 bg-indigo-400/80 rounded-sm" />
+                <div className="col-span-2 bg-emerald-400/80 rounded-sm" />
+                <div className="col-span-3 bg-zinc-800 rounded-sm opacity-40" />
+              </div>
+              <div className="flex items-center justify-between text-[9px] text-zinc-500 pt-0.5">
+                <span>[0x0000] SIMULATION</span>
+                <span>[0x4000] NETCODE</span>
+                <span>[0x8000] LINEAR HEADROOM</span>
+              </div>
+            </div>
+
             <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-white/[0.06] text-[11px] font-mono text-zinc-500">
               <span className="px-2 py-0.5 rounded bg-black/60 border border-white/[0.06]">CACHE-CONSCIOUS</span>
               <span className="px-2 py-0.5 rounded bg-black/60 border border-white/[0.06]">ARENA POOLS</span>

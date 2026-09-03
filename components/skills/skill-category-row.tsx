@@ -32,10 +32,26 @@ export function SkillCategoryRow({ category }: SkillCategoryRowProps) {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.025, duration: 0.25 }}
               whileHover={{ y: -1 }}
-              className="group relative flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] hover:border-white/[0.2] transition-all duration-150 cursor-default"
+              className={`group relative flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all duration-150 cursor-default ${
+                item.highlight
+                  ? "bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] hover:border-white/[0.28]"
+                  : "bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] hover:border-white/[0.2]"
+              }`}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-white/30 group-hover:bg-white transition-colors" />
-              <span className="text-xs sm:text-sm font-medium text-zinc-200 tracking-tight group-hover:text-white transition-colors">
+              <span
+                className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                  item.highlight
+                    ? "bg-sky-400 group-hover:bg-white"
+                    : "bg-white/30 group-hover:bg-white"
+                }`}
+              />
+              <span
+                className={`text-xs sm:text-sm font-medium tracking-tight transition-colors ${
+                  item.highlight
+                    ? "text-white"
+                    : "text-zinc-300 group-hover:text-white"
+                }`}
+              >
                 {item.name}
               </span>
               {item.domain && (

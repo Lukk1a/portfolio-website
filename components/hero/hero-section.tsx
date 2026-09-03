@@ -48,7 +48,7 @@ export function HeroSection() {
           <span className="font-mono text-xs tracking-widest text-zinc-500 uppercase">
             {"// SYSTEMS & WEB ARCHITECTURE"}
           </span>
-          <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter text-white leading-none">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter text-white leading-[0.95] text-balance">
             {portfolioConfig.personal.fullName}
           </h1>
         </motion.div>
@@ -57,7 +57,7 @@ export function HeroSection() {
           <p className="text-xl sm:text-2xl font-light text-zinc-300 tracking-tight leading-snug">
             {portfolioConfig.personal.role}
           </p>
-          <p className="text-base sm:text-lg text-zinc-400 font-light leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg text-zinc-400 font-light leading-relaxed max-w-2xl text-pretty">
             {portfolioConfig.personal.bio} {portfolioConfig.personal.statement}
           </p>
         </motion.div>

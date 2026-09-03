@@ -59,6 +59,28 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Luka Pajkanovic",
+  jobTitle: "Systems & Web Developer",
+  url: "https://gitlab.com/Lukk1a/portfolio",
+  sameAs: [
+    "https://github.com/lukaxdq",
+    "https://gitlab.com/Lukk1a/portfolio",
+  ],
+  knowsAbout: [
+    "C++20",
+    "Systems Architecture",
+    "Memory Allocators",
+    "Python",
+    "TypeScript",
+    "Next.js",
+    "Docker",
+    "Luau",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -66,6 +88,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark`} style={{ background: "#000000", colorScheme: "dark" }}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-[100dvh] bg-black text-[#ededed] font-sans antialiased" style={{ background: "#000000" }}>
         {children}
       </body>

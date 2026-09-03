@@ -31,15 +31,33 @@ export function InteractiveMatrix() {
         {/* Typographic Matrix Layout */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[260px]">
           {/* Typographic Cloud with Magnetic Pull (Left) */}
-          <div className="lg:col-span-7 flex flex-wrap items-center gap-4 sm:gap-6 py-4 select-none">
-            {portfolioConfig.matrixLanguages.map((lang) => {
+          <div
+            role="tablist"
+            aria-label="Core programming languages"
+            className="lg:col-span-7 flex flex-wrap items-center gap-4 sm:gap-6 py-4 select-none"
+          >
+            {portfolioConfig.matrixLanguages.map((lang, idx) => {
               const isActive = activeLang === lang.name;
               return (
                 <Magnetic key={lang.name} strength={0.25}>
                   <button
+                    role="tab"
+                    id={`tab-${lang.name}`}
+                    aria-selected={isActive}
+                    aria-controls="language-spec-panel"
+                    tabIndex={isActive ? 0 : -1}
                     onMouseEnter={() => setActiveLang(lang.name)}
                     onFocus={() => setActiveLang(lang.name)}
                     onClick={() => setActiveLang(lang.name)}
+                    onKeyDown={(e) => {
+                      if (e.key === "ArrowRight") {
+                        const next = (idx + 1) % portfolioConfig.matrixLanguages.length;
+                        setActiveLang(portfolioConfig.matrixLanguages[next].name);
+                      } else if (e.key === "ArrowLeft") {
+                        const prev = (idx - 1 + portfolioConfig.matrixLanguages.length) % portfolioConfig.matrixLanguages.length;
+                        setActiveLang(portfolioConfig.matrixLanguages[prev].name);
+                      }
+                    }}
                     className={`relative px-4 py-2.5 rounded-xl font-mono text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight transition-all duration-150 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 interactive-press ${
                       isActive
                         ? "text-white bg-white/[0.08] border border-white/20 shadow-lg shadow-sky-500/5"
@@ -62,7 +80,12 @@ export function InteractiveMatrix() {
           </div>
 
           {/* Context Detail Drawer (Right) */}
-          <div className="lg:col-span-5 h-full flex flex-col justify-center">
+          <div
+            id="language-spec-panel"
+            role="tabpanel"
+            aria-labelledby={activeLang ? `tab-${activeLang}` : undefined}
+            className="lg:col-span-5 h-full flex flex-col justify-center"
+          >
             <AnimatePresence mode="wait">
               {selectedData ? (
                 <motion.div

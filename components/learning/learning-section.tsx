@@ -64,6 +64,14 @@ export function LearningSection() {
                 <p className="text-xs text-zinc-400 leading-relaxed font-light font-sans">
                   {item.note}
                 </p>
+
+                {/* Live Milestone Progress */}
+                <div className="pt-1">
+                  <div className="px-2.5 py-1.5 rounded-lg bg-black/60 border border-white/[0.06] font-mono text-[10px] text-zinc-400 flex items-center gap-2">
+                    <span className="text-zinc-600">&gt;_</span>
+                    <span className="truncate">{item.milestone}</span>
+                  </div>
+                </div>
               </div>
 
               <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors font-mono">
