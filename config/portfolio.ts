@@ -14,7 +14,12 @@ export interface SkillCategory {
   items: TechItem[];
 }
 
-
+export interface MatrixLanguage {
+  name: string;
+  domain: string;
+  detail: string;
+  levelSnippet: string;
+}
 
 export interface CurrentlyLearningItem {
   id: string;
@@ -39,6 +44,7 @@ export interface PortfolioConfig {
     email: string;
     discord: string;
   };
+  matrixLanguages: MatrixLanguage[];
   skillCategories: SkillCategory[];
   currentlyLearning: CurrentlyLearningItem[];
 }
@@ -60,6 +66,40 @@ export const portfolioConfig: PortfolioConfig = {
     discord: "lukaxdq",
   },
 
+
+  // Interactive Floating Typographic Matrix
+  matrixLanguages: [
+    {
+      name: "C++",
+      domain: "Native Systems & Performance",
+      detail: "Low-level memory management, arena allocators, deterministic game loops & high-performance computing.",
+      levelSnippet: "#include <memory>",
+    },
+    {
+      name: "Python",
+      domain: "Automation & Scripting",
+      detail: "Backend services, async pipelines, CLI tooling, data manipulation, automation workflows & rapid prototyping.",
+      levelSnippet: "def execute_pipeline():",
+    },
+    {
+      name: "JavaScript",
+      domain: "Web & Runtime Engines",
+      detail: "Asynchronous I/O, event-driven programming, modern DOM APIs, and full-stack ecosystem tooling.",
+      levelSnippet: "const runtime = await init();",
+    },
+    {
+      name: "TypeScript",
+      domain: "Type-Safe Architecture",
+      detail: "Strict type systems, robust interfaces, scalable full-stack applications & clean contracts.",
+      levelSnippet: "type SystemContract<T> = ...",
+    },
+    {
+      name: "Luau",
+      domain: "Game Scripting & Roblox Engine",
+      detail: "High-performance embedded scripting, type inference, real-time client/server state replication.",
+      levelSnippet: "local RunService: RunService = ...",
+    },
+  ],
 
   // Structured Technology Index
   skillCategories: [

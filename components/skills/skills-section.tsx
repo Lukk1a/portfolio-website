@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { portfolioConfig } from "@/config/portfolio";
 import { SectionMarker } from "@/components/ui/section-marker";
+import { InteractiveMatrix } from "./interactive-matrix";
 import { SkillCategoryRow } from "./skill-category-row";
-import { LanguageConstellation } from "./language-constellation";
 
 export function SkillsSection() {
   return (
@@ -27,14 +27,14 @@ export function SkillsSection() {
         </p>
       </motion.div>
 
-      {/* Language Constellation */}
+      {/* Signature Interactive Matrix */}
       <motion.div
         initial={{ opacity: 0, y: 14, filter: "blur(4px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
       >
-        <LanguageConstellation />
+        <InteractiveMatrix />
       </motion.div>
 
       {/* Editorial Category Breakdown */}
