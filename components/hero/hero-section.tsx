@@ -5,7 +5,7 @@ import { motion, type Variants } from "framer-motion";
 import { portfolioConfig } from "@/config/portfolio";
 import { scrollToSection } from "@/lib/utils";
 import { Magnetic } from "@/components/ui/magnetic";
-import { ArrowDown, Code2 } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 export function HeroSection() {
   const containerVariants: Variants = {
@@ -95,20 +95,6 @@ export function HeroSection() {
             CONTACT
           </button>
         </motion.div>
-      </motion.div>
-
-      {/* Bottom Status Line */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.4 }}
-        className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/[0.08] font-mono text-xs text-zinc-600 tracking-wider uppercase"
-      >
-        <div className="flex items-center gap-2">
-          <Code2 className="w-3.5 h-3.5" />
-          <span>ZERO-OVERHEAD ABSTRACTIONS</span>
-        </div>
-        <span>{new Date().getFullYear()} — SYSTEMS ARCHITECTURE &amp; LOW-LATENCY INFRASTRUCTURE</span>
       </motion.div>
     </section>
   );
