@@ -108,7 +108,7 @@ export function HeroSection() {
           <Code2 className="w-3.5 h-3.5" />
           <span>ZERO-OVERHEAD ABSTRACTIONS</span>
         </div>
-        <span>{new Date().getFullYear()} — STANDALONE DOCKER &amp; CI/CD</span>
+        <span>{new Date().getFullYear()} — SYSTEMS ARCHITECTURE &amp; LOW-LATENCY INFRASTRUCTURE</span>
       </motion.div>
     </section>
   );

@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gitlab.com/Lukk1a/portfolio"),
   title: "Luka Pajkanovic — Systems & Web Developer",
   description:
     "Engineering portfolio of Luka Pajkanovic. Focused on C++, Python, TypeScript, and Luau. Low-level memory architectures, asynchronous pipelines, game simulation, and web platforms.",
@@ -88,13 +89,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark`} style={{ background: "#000000", colorScheme: "dark" }}>
-      <head>
+      <body className="min-h-[100dvh] bg-black text-[#ededed] font-sans antialiased" style={{ background: "#000000" }}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className="min-h-[100dvh] bg-black text-[#ededed] font-sans antialiased" style={{ background: "#000000" }}>
         {children}
       </body>
     </html>

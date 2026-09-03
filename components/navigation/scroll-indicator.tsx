@@ -17,8 +17,14 @@ const sections: Section[] = [
   { id: "contact", label: "Contact" },
 ];
 
-export function ScrollIndicator() {
-  const [activeSection, setActiveSection] = React.useState<string>("hero");
+interface ScrollIndicatorProps {
+  activeSection?: string;
+  onActiveSectionChange?: (section: string) => void;
+}
+
+export function ScrollIndicator({ activeSection: controlledActive, onActiveSectionChange }: ScrollIndicatorProps) {
+  const [internalActive, setInternalActive] = React.useState<string>("hero");
+  const activeSection = controlledActive ?? internalActive;
   const [hoveredSection, setHoveredSection] = React.useState<string | null>(null);
 
   React.useEffect(() => {
@@ -33,7 +39,8 @@ export function ScrollIndicator() {
             const el = document.getElementById(sections[i].id);
             if (el) {
               if (scrollPosition >= el.offsetTop) {
-                setActiveSection(sections[i].id);
+                setInternalActive(sections[i].id);
+                onActiveSectionChange?.(sections[i].id);
                 break;
               }
             }
@@ -48,7 +55,7 @@ export function ScrollIndicator() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [onActiveSectionChange]);
 
   return (
     <aside

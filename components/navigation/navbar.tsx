@@ -6,10 +6,11 @@ import { scrollToSection } from "@/lib/utils";
 import { Menu } from "lucide-react";
 
 interface NavbarProps {
+  activeSection?: string;
   onOpenMobileMenu: () => void;
 }
 
-export function Navbar({ onOpenMobileMenu }: NavbarProps) {
+export function Navbar({ activeSection = "hero", onOpenMobileMenu }: NavbarProps) {
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
@@ -53,31 +54,28 @@ export function Navbar({ onOpenMobileMenu }: NavbarProps) {
         </div>
 
         {/* Desktop Nav Items */}
-        <nav className="hidden md:flex items-center gap-8 font-mono text-xs text-zinc-400 tracking-wider uppercase">
-          <button
-            onClick={() => scrollToSection("skills")}
-            className="hover:text-white transition-colors cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/25 rounded px-1.5 py-0.5"
-          >
-            STACK
-          </button>
-          <button
-            onClick={() => scrollToSection("about")}
-            className="hover:text-white transition-colors cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/25 rounded px-1.5 py-0.5"
-          >
-            PRINCIPLES
-          </button>
-          <button
-            onClick={() => scrollToSection("learning")}
-            className="hover:text-white transition-colors cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/25 rounded px-1.5 py-0.5"
-          >
-            RADAR
-          </button>
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="hover:text-white transition-colors cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/25 rounded px-1.5 py-0.5"
-          >
-            CONTACT
-          </button>
+        <nav className="hidden md:flex items-center gap-2 sm:gap-3 font-mono text-xs tracking-wider uppercase">
+          {[
+            { id: "skills", label: "STACK" },
+            { id: "about", label: "PRINCIPLES" },
+            { id: "learning", label: "RADAR" },
+            { id: "contact", label: "CONTACT" },
+          ].map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`relative px-3 py-1 rounded-md transition-all duration-150 cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/25 ${
+                  isActive
+                    ? "text-white bg-white/[0.08] font-medium"
+                    : "text-zinc-400 hover:text-white"
+                }`}
+              >
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
         </nav>
 
         {/* Mobile Menu Trigger */}

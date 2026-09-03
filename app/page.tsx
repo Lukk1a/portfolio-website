@@ -15,16 +15,30 @@ import { Footer } from "@/components/footer/footer";
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [toastMessage, setToastMessage] = React.useState<string | null>(null);
+  const [activeSection, setActiveSection] = React.useState<string>("hero");
+  const toastTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
   const showToast = React.useCallback((msg: string) => {
+    if (toastTimeoutRef.current) {
+      clearTimeout(toastTimeoutRef.current);
+    }
     setToastMessage(msg);
-    setTimeout(() => {
+    toastTimeoutRef.current = setTimeout(() => {
       setToastMessage(null);
+      toastTimeoutRef.current = null;
     }, 2800);
   }, []);
 
+  React.useEffect(() => {
+    return () => {
+      if (toastTimeoutRef.current) {
+        clearTimeout(toastTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="relative min-h-screen bg-black text-[#ededed] selection:bg-white/20 selection:text-white">
+    <div className="relative min-h-[100dvh] bg-black text-[#ededed] selection:bg-white/20 selection:text-white">
       {/* Global Mobile Drawer */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
@@ -35,13 +49,17 @@ export default function Home() {
       {/* Ephemeral Toast Notification */}
       <CopyToast message={toastMessage} />
 
-      {/* Sticky Blur Navbar */}
+      {/* Sticky Blur Navbar with Synchronized Active State */}
       <Navbar
+        activeSection={activeSection}
         onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
       />
 
       {/* Right-Side Floating Section Scroll Indicator */}
-      <ScrollIndicator />
+      <ScrollIndicator
+        activeSection={activeSection}
+        onActiveSectionChange={setActiveSection}
+      />
 
       {/* Main Senior Engineering Page Layout */}
       <main className="relative z-10">
