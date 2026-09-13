@@ -6,7 +6,11 @@ import { Cpu, Globe, Gamepad2, Wrench } from "lucide-react";
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 sm:py-32 px-6 sm:px-8 max-w-6xl mx-auto border-t border-white/[0.08]">
+    <section
+      id="about"
+      aria-label="About Luka Pajkanovic — Engineering Principles"
+      className="py-24 sm:py-32 px-6 sm:px-8 max-w-6xl mx-auto border-t border-white/[0.08]"
+    >
       <SectionMarker number="02" label="ENGINEERING PRINCIPLES &amp; SYSTEMS DISCIPLINE" tag="// PHILOSOPHY" />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -23,7 +27,7 @@ export function AboutSection() {
           </h2>
 
           <p className="text-base text-zinc-400 font-light leading-relaxed">
-            I favor clean memory models, compile-time type safety, and systems
+            As a systems and web developer, I favor clean memory models, compile-time type safety, and architectures
             that feel instant and unyielding under heavy load. From native engines
             to async web pipelines, the discipline stays the same: measure first,
             abstract only what earns its cost.
@@ -172,7 +176,7 @@ export function AboutSection() {
                   Automated Verification &amp; CI/CD
                 </h3>
                 <p className="text-xs text-zinc-400 leading-relaxed font-light">
-                  Multi-stage Docker containers, cached build runners, and automated GitLab CI pipelines.
+                  Multi-stage Docker containers, cached build runners, and automated GitHub Actions pipelines.
                 </p>
               </div>
             </div>

@@ -5,7 +5,7 @@ import { portfolioConfig } from "@/config/portfolio";
 import { SectionMarker } from "@/components/ui/section-marker";
 import { Magnetic } from "@/components/ui/magnetic";
 import { ArrowUpRight, Copy, Mail } from "lucide-react";
-import { GithubIcon, GitlabIcon, DiscordIcon } from "@/components/ui/icons";
+import { GithubIcon, DiscordIcon } from "@/components/ui/icons";
 
 interface ContactSectionProps {
   onToast: (msg: string) => void;
@@ -59,14 +59,14 @@ export function ContactSection({ onToast }: ContactSectionProps) {
                   title="Copy email to clipboard"
                   aria-label="Copy email address"
                 >
-                  COPY
+                  <Copy className="w-3 h-3" />
                 </button>
               </div>
 
               <a
                 href={`mailto:${portfolioConfig.social.email}`}
-                className="flex items-center justify-between group-hover:text-white transition-colors pt-4 w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded-lg"
-                aria-label="Send an email to Luka"
+                className="flex items-center justify-between group-hover:text-white transition-colors pt-4 focus:outline-none"
+                aria-label="Send direct email"
               >
                 <div>
                   <span className="text-xl font-semibold tracking-tight text-zinc-200 block">
@@ -81,19 +81,19 @@ export function ContactSection({ onToast }: ContactSectionProps) {
             </div>
           </Magnetic>
 
-          {/* GitLab Action */}
+          {/* GitHub Repo Action */}
           <Magnetic strength={0.15}>
             <a
-              href={portfolioConfig.social.gitlab}
+              href={portfolioConfig.social.repo}
               target="_blank"
               rel="noopener noreferrer"
               className="group p-6 rounded-2xl bg-zinc-950/70 hover:bg-zinc-900 border border-white/[0.08] hover:border-white/[0.22] transition-all duration-150 flex flex-col justify-between min-h-[160px] h-full block focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
-              aria-label="Open GitLab profile in new tab"
+              aria-label="Open portfolio source code repository on GitHub"
             >
               <div className="flex items-center justify-between text-xs font-mono text-zinc-500">
                 <div className="flex items-center gap-2">
-                  <GitlabIcon className="w-3.5 h-3.5 text-zinc-400" />
-                  <span>GITLAB CI/CD</span>
+                  <GithubIcon className="w-3.5 h-3.5 text-zinc-400" />
+                  <span>PORTFOLIO REPO</span>
                 </div>
                 <span className="text-[10px] text-zinc-600 group-hover:text-zinc-300 transition-colors">
                   [SOURCE]
@@ -102,7 +102,7 @@ export function ContactSection({ onToast }: ContactSectionProps) {
 
               <div className="flex items-center justify-between group-hover:text-white transition-colors pt-4">
                 <span className="text-xl font-semibold tracking-tight text-zinc-200">
-                  GITLAB
+                  REPOSITORY
                 </span>
                 <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </div>

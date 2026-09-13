@@ -31,17 +31,22 @@ export interface CurrentlyLearningItem {
 }
 
 export interface PortfolioConfig {
+  siteUrl: string;
   personal: {
     name: string;
     fullName: string;
+    firstName: string;
+    lastName: string;
+    alternateNames: string[];
     role: string;
+    title: string;
     bio: string;
     statement: string;
     coreHighlights: string[];
   };
   social: {
     github: string;
-    gitlab: string;
+    repo: string;
     email: string;
     discord: string;
   };
@@ -51,18 +56,24 @@ export interface PortfolioConfig {
 }
 
 export const portfolioConfig: PortfolioConfig = {
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://lukka.dev",
+
   personal: {
     name: "LUKA",
     fullName: "Luka Pajkanovic",
+    firstName: "Luka",
+    lastName: "Pajkanovic",
+    alternateNames: ["Lukk1a", "lukaxdq", "Luka"],
     role: "Systems & Web Developer",
+    title: "Luka Pajkanovic — Systems & Web Developer",
     bio: "I build high-performance software, systems-level logic, scalable web architectures, and interactive game mechanics from scratch.",
     statement: "Focused on deterministic engineering, clean memory models, zero-overhead abstractions, and tactile digital interfaces.",
     coreHighlights: ["Native Memory Models", "Async Task Pipelines", "Deterministic Simulation", "Type-Safe Architecture"],
   },
 
   social: {
-    github: "https://github.com/lukaxdq",
-    gitlab: "https://gitlab.com/Lukk1a/portfolio",
+    github: "https://github.com/Lukk1a",
+    repo: "https://github.com/Lukk1a/portfolio-website",
     email: "pajkanovicluka7@gmail.com",
     discord: "lukaxdq",
   },
@@ -126,6 +137,7 @@ export const portfolioConfig: PortfolioConfig = {
       description: "Containerization, continuous integration, version control, and Linux systems administration.",
       items: [
         { name: "GitLab CI/CD", category: "tools", domain: "Automated Multi-Stage Pipelines", highlight: true },
+        { name: "GitHub Actions", category: "tools", domain: "Automated Multi-Stage CI/CD", highlight: true },
         { name: "Docker", category: "tools", domain: "Multi-Stage Containers & Isolation", highlight: true },
         { name: "Linux / POSIX", category: "tools", domain: "Shell Scripting & Server Admin" },
         { name: "Git", category: "tools", domain: "Branching Strategies & Commits" },

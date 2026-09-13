@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Mail } from "lucide-react";
-import { GithubIcon, GitlabIcon, DiscordIcon } from "@/components/ui/icons";
+import { GithubIcon, DiscordIcon } from "@/components/ui/icons";
 import { portfolioConfig } from "@/config/portfolio";
 import { scrollToSection } from "@/lib/utils";
 
@@ -104,13 +104,13 @@ export function MobileMenu({ isOpen, onClose, onToast }: MobileMenuProps) {
           {/* Mobile Footer / Quick Socials */}
           <div className="pt-6 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-zinc-400">
             <a
-              href={portfolioConfig.social.gitlab}
+              href={portfolioConfig.social.repo}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-white transition-colors"
             >
-              <GitlabIcon className="w-3.5 h-3.5 text-zinc-400" />
-              <span>GitLab</span>
+              <GithubIcon className="w-3.5 h-3.5 text-zinc-400" />
+              <span>Repository</span>
             </a>
             <a
               href={portfolioConfig.social.github}

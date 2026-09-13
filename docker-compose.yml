@@ -1,5 +1,6 @@
 services:
   portfolio:
+    image: ghcr.io/lukk1a/portfolio-website:latest
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,3 +12,17 @@ services:
       - NODE_ENV=production
       - PORT=3000
       - HOSTNAME=0.0.0.0
+      - NEXT_PUBLIC_SITE_URL=https://lukka.dev
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: luka-portfolio-watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_POLL_INTERVAL=60
+      - WATCHTOWER_LABEL_ENABLE=true

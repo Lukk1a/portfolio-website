@@ -3,7 +3,7 @@
 import { portfolioConfig } from "@/config/portfolio";
 import { scrollToSection } from "@/lib/utils";
 import { ArrowUp, Mail } from "lucide-react";
-import { GithubIcon, GitlabIcon, DiscordIcon } from "@/components/ui/icons";
+import { GithubIcon, DiscordIcon } from "@/components/ui/icons";
 
 interface FooterProps {
   onToast: (msg: string) => void;
@@ -31,13 +31,13 @@ export function Footer({ onToast }: FooterProps) {
         {/* Center: Social Links */}
         <div className="flex flex-wrap items-center gap-5 sm:gap-6">
           <a
-            href={portfolioConfig.social.gitlab}
+            href={portfolioConfig.social.repo}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded px-1.5 py-0.5"
           >
-            <GitlabIcon className="w-3.5 h-3.5 text-zinc-400" />
-            <span>GitLab</span>
+            <GithubIcon className="w-3.5 h-3.5 text-zinc-400" />
+            <span>Repository</span>
           </a>
           <a
             href={portfolioConfig.social.github}

@@ -1,15 +1,15 @@
 # AI Agent Guidelines & Engineering Rules
 
 > **Project:** Luka Pajkanovic — Developer Portfolio  
-> **Repository:** `https://gitlab.com/Lukk1a/portfolio`  
-> **Environment:** Next.js 15 (App Router) • React 19 • TypeScript • Tailwind CSS • Docker • GitLab CI/CD
+> **Repository:** `https://github.com/Lukk1a/portfolio-website`  
+> **Environment:** Next.js 15 (App Router) • React 19 • TypeScript • Tailwind CSS • Docker • GitHub Actions
 
 ---
 
 ## 1. Core Principles & Philosophy
 
 1. **Aesthetic Excellence**: This is a high-end personal engineering portfolio. Every view, transition, and micro-interaction must feel deliberate, refined, and state-of-the-art. No generic templates or basic HTML styling.
-2. **Zero-Breakage CI/CD**: All code pushed to `main` triggers automated GitLab CI/CD pipelines. Every change must pass `npm run lint` and `npm run build` locally before committing.
+2. **Zero-Breakage CI/CD**: All code pushed to `main` triggers automated GitHub Actions pipelines. Every change must pass `npm run lint` and `npm run build` locally before committing.
 3. **Performance First**: Prioritize fast First Contentful Paint (FCP), low Cumulative Layout Shift (CLS), and smooth 60fps animations.
 
 ---
@@ -21,7 +21,7 @@
 - **Styling**: Tailwind CSS with custom theme extensions and dark-mode tokens.
 - **Motion & Interaction**: Framer Motion 12, Lucide React icons, and custom magnetic/cursor interactions.
 - **Containerization**: Multi-stage production [Dockerfile](file:///d:/projects/porfolio/Dockerfile) and [docker-compose.yml](file:///d:/projects/porfolio/docker-compose.yml).
-- **CI/CD**: GitLab CI/CD ([.gitlab-ci.yml](file:///d:/projects/porfolio/.gitlab-ci.yml)) with cached dependencies, automated linting, build checks, and Container Registry builds.
+- **CI/CD**: GitHub Actions ([.github/workflows/ci.yml](file:///d:/projects/porfolio/.github/workflows/ci.yml)) with cached dependencies, automated linting, and build checks.
 
 ---
 

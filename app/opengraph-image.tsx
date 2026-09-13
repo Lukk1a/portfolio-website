@@ -1,6 +1,5 @@
 import { ImageResponse } from "next/og";
-
-export const runtime = "edge";
+import { portfolioConfig } from "@/config/portfolio";
 
 export const alt = "Luka Pajkanovic — Systems & Web Developer";
 export const size = {
@@ -10,6 +9,8 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
+  const displayHost = portfolioConfig.siteUrl.replace(/^https?:\/\//, "");
+
   return new ImageResponse(
     (
       <div
@@ -86,7 +87,7 @@ export default async function Image() {
           }}
         >
           <div>C++20 • PYTHON • TYPESCRIPT • LUAU • DOCKER</div>
-          <div>gitlab.com/Lukk1a/portfolio</div>
+          <div>{displayHost}</div>
         </div>
       </div>
     ),
