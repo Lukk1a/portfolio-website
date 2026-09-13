@@ -10,6 +10,13 @@ interface NavbarProps {
   onOpenMobileMenu: () => void;
 }
 
+const NAV_ITEMS = [
+  { id: "skills", label: "STACK" },
+  { id: "about", label: "PRINCIPLES" },
+  { id: "learning", label: "RADAR" },
+  { id: "contact", label: "CONTACT" },
+] as const;
+
 export function Navbar({ activeSection = "hero", onOpenMobileMenu }: NavbarProps) {
   const [isScrolled, setIsScrolled] = React.useState(false);
 
@@ -41,51 +48,60 @@ export function Navbar({ activeSection = "hero", onOpenMobileMenu }: NavbarProps
       <div className="max-w-6xl mx-auto px-6 sm:px-8 flex items-center justify-between">
         {/* Brand / Name */}
         <div className="flex items-center gap-4">
-          <button
-            onClick={() => scrollToSection("hero")}
-            className="group flex items-center gap-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white/25 rounded-md px-1 py-0.5 cursor-pointer"
-            aria-label="Scroll to top"
+          <a
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("hero");
+            }}
+            className="group flex items-center gap-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 rounded-md p-2 -ml-2 cursor-pointer"
+            aria-label={`${portfolioConfig.personal.name} — Scroll to top`}
           >
             <span className="font-mono text-sm tracking-wider text-white font-semibold group-hover:text-zinc-300 transition-colors">
               {portfolioConfig.personal.name}
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white transition-colors" />
-          </button>
+            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white transition-colors" />
+          </a>
         </div>
 
         {/* Desktop Nav Items */}
-        <nav className="hidden md:flex items-center gap-2 sm:gap-3 font-mono text-xs tracking-wider uppercase">
-          {[
-            { id: "skills", label: "STACK" },
-            { id: "about", label: "PRINCIPLES" },
-            { id: "learning", label: "RADAR" },
-            { id: "contact", label: "CONTACT" },
-          ].map((item) => {
-            const isActive = activeSection === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`relative px-3 py-1 rounded-md transition-all duration-150 cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/25 ${
-                  isActive
-                    ? "text-white bg-white/[0.08] font-medium"
-                    : "text-zinc-400 hover:text-white"
-                }`}
-              >
-                <span>{item.label}</span>
-              </button>
-            );
-          })}
+        <nav aria-label="Main navigation" className="hidden md:flex items-center font-mono text-xs tracking-wider uppercase">
+          <ul role="list" className="flex items-center gap-2 sm:gap-3">
+            {NAV_ITEMS.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.id);
+                    }}
+                    aria-current={isActive ? "location" : undefined}
+                    className={`relative inline-block px-3 py-1.5 rounded-md transition-all duration-150 cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 ${
+                      isActive
+                        ? "text-white bg-white/[0.08] font-medium"
+                        : "text-zinc-400 hover:text-white"
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </nav>
 
-        {/* Mobile Menu Trigger */}
+        {/* Mobile Menu Trigger (44x44px Touch Target) */}
         <div className="flex items-center md:hidden">
           <button
             onClick={onOpenMobileMenu}
-            className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] text-zinc-400 hover:text-white interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/25"
-            aria-label="Open mobile menu"
+            aria-expanded={false}
+            aria-controls="mobile-menu"
+            aria-label="Open mobile navigation menu"
+            className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-white/[0.04] border border-white/[0.08] text-zinc-400 hover:text-white interactive-press flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
           >
-            <Menu className="w-4 h-4" />
+            <Menu className="w-4 h-4" aria-hidden="true" />
           </button>
         </div>
       </div>

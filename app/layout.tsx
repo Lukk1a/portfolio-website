@@ -23,25 +23,6 @@ export const metadata: Metadata = {
   },
   description:
     "Official portfolio and engineering systems work of Luka Pajkanovic. Focused on C++, Python, TypeScript, and Luau. Low-level memory architectures, asynchronous pipelines, game simulation, and web platforms.",
-  keywords: [
-    "Luka Pajkanovic",
-    "Luka Pajkanovic Developer",
-    "Luka Pajkanovic Software Engineer",
-    "Luka Pajkanovic Systems",
-    "Luka Pajkanovic Portfolio",
-    "Systems Engineer",
-    "Software Engineer",
-    "C++20",
-    "Python",
-    "TypeScript",
-    "JavaScript",
-    "Luau",
-    "Next.js",
-    "Docker",
-    "GitLab CI/CD",
-    "GitHub Actions",
-    "GitHub",
-  ],
   authors: [{ name: "Luka Pajkanovic", url: portfolioConfig.siteUrl }],
   creator: "Luka Pajkanovic",
   publisher: "Luka Pajkanovic",
@@ -55,20 +36,11 @@ export const metadata: Metadata = {
     siteName: "Luka Pajkanovic Portfolio",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Luka Pajkanovic — Systems & Web Developer",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Luka Pajkanovic — Systems & Web Developer",
     description: "Systems, Web Architecture & Game Engineering. C++ / Python / TypeScript / Luau.",
-    images: ["/opengraph-image"],
     creator: "@Lukk1a",
   },
   robots: {
@@ -92,6 +64,7 @@ export const viewport: Viewport = {
   themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 const jsonLd = {
@@ -142,6 +115,15 @@ const jsonLd = {
         "@id": `${portfolioConfig.siteUrl}/#person`,
       },
     },
+    {
+      "@type": "ProfilePage",
+      "@id": `${portfolioConfig.siteUrl}/#profile`,
+      url: portfolioConfig.siteUrl,
+      name: `${portfolioConfig.personal.fullName} Portfolio`,
+      mainEntity: {
+        "@id": `${portfolioConfig.siteUrl}/#person`,
+      },
+    },
   ],
 };
 
@@ -153,6 +135,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark`} style={{ background: "#000000", colorScheme: "dark" }}>
       <body className="min-h-[100dvh] bg-black text-[#ededed] font-sans antialiased" style={{ background: "#000000" }}>
+        {/* Skip to Main Content Link for WCAG 2.4.1 Keyboard Accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:font-mono focus:text-xs focus:font-bold focus:rounded-md focus:shadow-2xl focus:outline-none focus:ring-2 focus:ring-sky-500"
+        >
+          Skip to main content
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

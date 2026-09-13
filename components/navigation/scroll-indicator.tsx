@@ -28,41 +28,39 @@ export function ScrollIndicator({ activeSection: controlledActive, onActiveSecti
   const [hoveredSection, setHoveredSection] = React.useState<string | null>(null);
 
   React.useEffect(() => {
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollPosition = window.scrollY + window.innerHeight * 0.4;
-
-          for (let i = sections.length - 1; i >= 0; i--) {
-            const el = document.getElementById(sections[i].id);
-            if (el) {
-              if (scrollPosition >= el.offsetTop) {
-                setInternalActive(sections[i].id);
-                onActiveSectionChange?.(sections[i].id);
-                break;
-              }
-            }
-          }
-          ticking = false;
-        });
-        ticking = true;
+    // High-performance IntersectionObserver instead of layout-thrashing offsetTop queries
+    const observerCallback: IntersectionObserverCallback = (entries) => {
+      // Find the entry that has the highest intersection ratio or is currently intersecting
+      const intersecting = entries.filter((e) => e.isIntersecting);
+      if (intersecting.length > 0) {
+        // Sort by greatest intersection ratio
+        intersecting.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        const topId = intersecting[0].target.id;
+        setInternalActive(topId);
+        onActiveSectionChange?.(topId);
       }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    const observer = new IntersectionObserver(observerCallback, {
+      root: null,
+      rootMargin: "-20% 0px -40% 0px",
+      threshold: [0.1, 0.3, 0.5, 0.8],
+    });
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    sections.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, [onActiveSectionChange]);
 
   return (
-    <aside
-      aria-label="Page navigation radar"
+    <nav
+      aria-label="Section radar navigation"
       className="fixed right-6 lg:right-8 top-1/2 -translate-y-1/2 z-40 hidden md:flex items-center justify-center select-none"
     >
-      <div className="relative flex flex-col items-center justify-center gap-3 p-2.5 rounded-2xl bg-zinc-950/80 backdrop-blur-md border border-white/[0.08] shadow-card w-12">
+      <div className="relative flex flex-col items-center justify-center gap-1.5 p-2 rounded-2xl bg-zinc-950/80 backdrop-blur-md border border-white/[0.08] shadow-card w-12">
         {/* Subtle Vertical Connector Track */}
         <div className="absolute top-4 bottom-4 w-[1px] bg-white/[0.04] pointer-events-none" />
 
@@ -88,41 +86,44 @@ export function ScrollIndicator({ activeSection: controlledActive, onActiveSecti
                 )}
               </AnimatePresence>
 
-              {/* Indicator Button */}
-              <button
-                onClick={() => scrollToSection(id)}
+              {/* Indicator Button (28px touch target for WCAG 2.2 AA) */}
+              <a
+                href={`#${id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(id);
+                }}
                 onMouseEnter={() => setHoveredSection(id)}
                 onMouseLeave={() => setHoveredSection(null)}
                 onFocus={() => setHoveredSection(id)}
                 onBlur={() => setHoveredSection(null)}
                 aria-label={`Jump to ${label} section`}
-                className="relative flex items-center justify-center w-8 h-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 rounded-full cursor-pointer group"
+                aria-current={isActive ? "location" : undefined}
+                className="relative flex items-center justify-center w-8 min-h-[28px] focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 rounded-full cursor-pointer group"
               >
+                {/* GPU-composited scaleX transform instead of reflow-triggering width animation */}
                 <motion.div
                   animate={{
-                    width: isActive ? 22 : isHovered ? 14 : 7,
-                    height: isActive ? 3 : 2,
+                    scaleX: isActive ? 1 : isHovered ? 0.65 : 0.32,
+                    scaleY: isActive ? 1.2 : 1,
                     backgroundColor: isActive
                       ? "#ffffff"
                       : isHovered
                       ? "rgba(255, 255, 255, 0.7)"
                       : "rgba(255, 255, 255, 0.25)",
-                    boxShadow: isActive
-                      ? "0 0 10px rgba(255, 255, 255, 0.5)"
-                      : "none",
                   }}
                   transition={{
                     type: "spring",
                     stiffness: 400,
                     damping: 26,
                   }}
-                  className="rounded-full origin-center"
+                  className="w-6 h-[2.5px] rounded-full origin-center"
                 />
-              </button>
+              </a>
             </div>
           );
         })}
       </div>
-    </aside>
+    </nav>
   );
 }
