@@ -5,7 +5,6 @@ import { Navbar } from "@/components/navigation/navbar";
 import { MobileMenu } from "@/components/navigation/mobile-menu";
 import { ScrollIndicator } from "@/components/navigation/scroll-indicator";
 import { CopyToast } from "@/components/ui/copy-toast";
-import { VersionDetector } from "@/components/ui/version-detector";
 import { HeroSection } from "@/components/hero/hero-section";
 import { SkillsSection } from "@/components/skills/skills-section";
 import { AboutSection } from "@/components/about/about-section";
@@ -49,9 +48,6 @@ export default function Home() {
 
       {/* Ephemeral Toast Notification */}
       <CopyToast message={toastMessage} />
-
-      {/* Live Deployment & New Version Detector */}
-      <VersionDetector />
 
       {/* Sticky Blur Navbar with Synchronized Active State */}
       <Navbar
