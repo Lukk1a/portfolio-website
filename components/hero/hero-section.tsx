@@ -13,20 +13,19 @@ export function HeroSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.05,
+        staggerChildren: 0.06,
+        delayChildren: 0.02,
       },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 12, filter: "blur(4px)" },
+    hidden: { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
       transition: {
-        duration: 0.4,
+        duration: 0.35,
         ease: [0.16, 1, 0.3, 1],
       },
     },
@@ -35,7 +34,8 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[90dvh] flex flex-col justify-between pt-24 pb-16 sm:pt-28 sm:pb-20 px-6 sm:px-8 max-w-6xl mx-auto"
+      aria-labelledby="hero-heading"
+      className="relative min-h-[90dvh] flex flex-col justify-between pt-24 pb-16 sm:pt-28 sm:pb-20 px-6 sm:px-8 max-w-6xl mx-auto scroll-mt-16 sm:scroll-mt-20"
     >
       {/* Main Hero Body */}
       <motion.div
@@ -45,10 +45,13 @@ export function HeroSection() {
         className="my-auto py-8 sm:py-12 space-y-8 max-w-3xl"
       >
         <motion.div variants={itemVariants} className="space-y-3">
-          <span className="font-mono text-xs tracking-widest text-zinc-500 uppercase">
+          <span className="font-mono text-xs tracking-widest text-zinc-400 uppercase">
             {"// SYSTEMS & WEB ARCHITECTURE"}
           </span>
-          <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter text-white leading-[0.95] text-balance">
+          <h1
+            id="hero-heading"
+            className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter text-white leading-[0.95] text-balance"
+          >
             {portfolioConfig.personal.fullName}
           </h1>
         </motion.div>
@@ -74,26 +77,36 @@ export function HeroSection() {
           ))}
         </motion.div>
 
-        {/* Action Buttons with Button-in-Button Architecture */}
-        <motion.div variants={itemVariants} className="pt-4 flex items-center gap-4">
+        {/* Action Buttons with Semantic Anchors and WCAG Touch Targets */}
+        <motion.div variants={itemVariants} className="pt-4 flex flex-wrap items-center gap-4">
           <Magnetic strength={0.2}>
-            <button
-              onClick={() => scrollToSection("skills")}
-              className="group pl-5 pr-3 py-2 rounded-full bg-white text-black font-medium text-xs font-mono tracking-wider hover:bg-zinc-200 transition-all duration-150 interactive-press cursor-pointer flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            <a
+              href="#skills"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("skills");
+              }}
+              aria-label="View architecture and technical skills"
+              className="group pl-5 pr-3 py-2.5 min-h-[44px] rounded-full bg-white text-black font-medium text-xs font-mono tracking-wider hover:bg-zinc-200 transition-all duration-150 interactive-press cursor-pointer inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               <span>VIEW ARCHITECTURE</span>
               <div className="w-6 h-6 rounded-full bg-black/10 flex items-center justify-center group-hover:translate-y-0.5 transition-transform duration-150">
-                <ArrowDown className="w-3 h-3 text-black" />
+                <ArrowDown className="w-3 h-3 text-black" aria-hidden="true" />
               </div>
-            </button>
+            </a>
           </Magnetic>
 
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="px-5 py-2.5 rounded-full bg-transparent border border-white/[0.12] hover:border-white/[0.25] text-zinc-300 hover:text-white text-xs font-mono tracking-wider transition-colors interactive-press cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("contact");
+            }}
+            aria-label="Navigate to contact section"
+            className="px-5 py-2.5 min-h-[44px] rounded-full bg-transparent border border-white/[0.12] hover:border-white/[0.25] text-zinc-300 hover:text-white text-xs font-mono tracking-wider transition-colors interactive-press cursor-pointer inline-flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
           >
             CONTACT
-          </button>
+          </a>
         </motion.div>
       </motion.div>
     </section>

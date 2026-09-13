@@ -7,17 +7,21 @@ import { Activity } from "lucide-react";
 
 export function LearningSection() {
   return (
-    <section id="learning" className="py-24 sm:py-32 px-6 sm:px-8 max-w-6xl mx-auto border-t border-white/[0.08]">
-      <SectionMarker number="03" label="ACTIVE RESEARCH RADAR &amp; SPECIALIZATION" tag="// RADAR" />
+    <section
+      id="learning"
+      aria-labelledby="learning-heading"
+      className="py-24 sm:py-32 px-6 sm:px-8 max-w-6xl mx-auto border-t border-white/[0.08] scroll-mt-16 sm:scroll-mt-20"
+    >
+      <SectionMarker number="03" label="ACTIVE RESEARCH RADAR & SPECIALIZATION" tag="// RADAR" />
 
       <motion.div
-        initial={{ opacity: 0, y: 14, filter: "blur(4px)" }}
-        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        initial={{ opacity: 0, y: 14 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         className="mb-12 space-y-3"
       >
-        <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+        <h2 id="learning-heading" className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
           Active Engineering Radar
         </h2>
         <p className="text-sm sm:text-base text-zinc-400 font-light max-w-2xl leading-relaxed">
@@ -33,8 +37,8 @@ export function LearningSection() {
           return (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: idx * 0.06, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -2 }}
@@ -67,19 +71,19 @@ export function LearningSection() {
 
                 {/* Live Milestone Progress */}
                 <div className="pt-1">
-                  <div className="px-2.5 py-1.5 rounded-lg bg-black/60 border border-white/[0.06] font-mono text-[10px] text-zinc-400 flex items-center gap-2">
-                    <span className="text-zinc-600">&gt;_</span>
+                  <div className="px-2.5 py-1.5 rounded-lg bg-black/60 border border-white/[0.06] font-mono text-[10px] text-zinc-300 flex items-center gap-2">
+                    <span className="text-zinc-400">&gt;_</span>
                     <span className="truncate">{item.milestone}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors font-mono">
+              <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-zinc-400 group-hover:text-zinc-300 transition-colors font-mono">
                 <div className="flex items-center gap-1.5">
-                  <Activity className="w-3.5 h-3.5 text-zinc-500" />
+                  <Activity className="w-3.5 h-3.5 text-zinc-400" aria-hidden="true" />
                   <span>EXPLORATION TRACK</span>
                 </div>
-                <span className="text-[10px] tracking-wider text-zinc-600 group-hover:text-zinc-400">
+                <span className="text-[10px] tracking-wider text-zinc-400 group-hover:text-zinc-300">
                   0{idx + 1}
                 </span>
               </div>

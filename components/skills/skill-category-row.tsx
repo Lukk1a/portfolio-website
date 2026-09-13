@@ -13,20 +13,21 @@ export function SkillCategoryRow({ category }: SkillCategoryRowProps) {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
         {/* Category Header (Left column) */}
         <div className="md:col-span-4 space-y-1.5">
-          <div className="flex items-center gap-2 font-mono text-xs text-zinc-400 tracking-wider uppercase">
+          <h3 className="flex items-center gap-2 font-mono text-xs text-zinc-400 tracking-wider uppercase">
             <span className="text-white font-semibold font-mono">[{category.index}]</span>
             <span className="text-white font-medium">{category.title}</span>
-          </div>
+          </h3>
           <p className="text-xs text-zinc-400 leading-relaxed max-w-xs font-light">
             {category.description}
           </p>
         </div>
 
         {/* Tech Items List (Right column) */}
-        <div className="md:col-span-8 flex flex-wrap gap-2 sm:gap-2.5">
+        <ul role="list" className="md:col-span-8 flex flex-wrap gap-2 sm:gap-2.5">
           {category.items.map((item, idx) => (
-            <motion.div
+            <motion.li
               key={item.name}
+              role="listitem"
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -55,13 +56,13 @@ export function SkillCategoryRow({ category }: SkillCategoryRowProps) {
                 {item.name}
               </span>
               {item.domain && (
-                <span className="hidden sm:inline-block font-mono text-[10px] text-zinc-500 group-hover:text-zinc-400 transition-colors border-l border-white/10 pl-2">
+                <span className="hidden sm:inline-block font-mono text-[10px] text-zinc-400 group-hover:text-zinc-300 transition-colors border-l border-white/10 pl-2">
                   {item.domain}
                 </span>
               )}
-            </motion.div>
+            </motion.li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   );
