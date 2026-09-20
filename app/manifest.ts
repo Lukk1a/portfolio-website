@@ -3,7 +3,7 @@ import { portfolioConfig } from "@/config/portfolio";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${portfolioConfig.personal.fullName} — Systems & Web Developer`,
+    name: `${portfolioConfig.personal.fullName} | Systems & Web Developer`,
     short_name: portfolioConfig.personal.fullName,
     description: `Systems, Web Architecture & Game Engineering Portfolio of ${portfolioConfig.personal.fullName}.`,
     start_url: "/",

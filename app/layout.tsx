@@ -20,11 +20,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(portfolioConfig.siteUrl),
   title: {
-    default: "Luka Pajkanovic — Systems & Web Developer",
+    default: "Luka Pajkanovic | Systems & Web Developer",
     template: "%s | Luka Pajkanovic",
   },
   description:
-    "Official portfolio and engineering systems work of Luka Pajkanovic. Focused on C++, Python, TypeScript, and Luau. Low-level memory architectures, asynchronous pipelines, game simulation, and web platforms.",
+    "Official portfolio and engineering systems work of Luka Pajkanovic. Focused on C++, Python, TypeScript, and Luau. Low level memory architectures, asynchronous pipelines, game simulation, and web platforms.",
   authors: [{ name: "Luka Pajkanovic", url: portfolioConfig.siteUrl }],
   creator: "Luka Pajkanovic",
   publisher: "Luka Pajkanovic",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Luka Pajkanovic — Systems & Web Developer",
+    title: "Luka Pajkanovic | Systems & Web Developer",
     description: "Systems, Web Architecture & Game Engineering. C++ / Python / TypeScript / Luau.",
     url: portfolioConfig.siteUrl,
     siteName: "Luka Pajkanovic Portfolio",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luka Pajkanovic — Systems & Web Developer",
+    title: "Luka Pajkanovic | Systems & Web Developer",
     description: "Systems, Web Architecture & Game Engineering. C++ / Python / TypeScript / Luau.",
     creator: "@Lukk1a",
   },
@@ -98,7 +98,7 @@ const jsonLd = {
         "GitHub Actions",
         "Luau",
         "Deterministic Simulation",
-        "Low-Latency Concurrency",
+        "Low Latency Concurrency",
         "Game Engineering",
       ],
       description: portfolioConfig.personal.bio,
@@ -107,7 +107,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": `${portfolioConfig.siteUrl}/#website`,
       url: portfolioConfig.siteUrl,
-      name: `${portfolioConfig.personal.fullName} — Systems & Web Developer`,
+      name: `${portfolioConfig.personal.fullName} | Systems & Web Developer`,
       description: portfolioConfig.personal.bio,
       inLanguage: "en-US",
       publisher: {

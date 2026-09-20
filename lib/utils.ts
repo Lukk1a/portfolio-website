@@ -30,7 +30,7 @@ export async function copyToClipboard(text: string): Promise<boolean> {
     }
   }
 
-  // Fallback for non-secure contexts, restricted iframes, or older mobile browsers
+  // Fallback for non secure contexts, restricted iframes, or older mobile browsers
   try {
     const textarea = document.createElement("textarea");
     textarea.value = text;

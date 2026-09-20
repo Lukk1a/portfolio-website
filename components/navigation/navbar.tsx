@@ -55,7 +55,7 @@ export function Navbar({ activeSection = "hero", onOpenMobileMenu }: NavbarProps
               scrollToSection("hero");
             }}
             className="group flex items-center gap-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 rounded-md p-2 -ml-2 cursor-pointer"
-            aria-label={`${portfolioConfig.personal.name} — Scroll to top`}
+            aria-label={`${portfolioConfig.personal.name}: Scroll to top`}
           >
             <span className="font-mono text-sm tracking-wider text-white font-semibold group-hover:text-zinc-300 transition-colors">
               {portfolioConfig.personal.name}

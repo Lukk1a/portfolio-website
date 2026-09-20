@@ -1,6 +1,6 @@
 # AI Agent Guidelines & Engineering Rules
 
-> **Project:** Luka Pajkanovic — Developer Portfolio  
+> **Project:** Luka Pajkanovic | Developer Portfolio  
 > **Repository:** `https://github.com/Lukk1a/portfolio-website`  
 > **Environment:** Next.js 15 (App Router) • React 19 • TypeScript • Tailwind CSS • Docker • GitHub Actions
 

@@ -57,7 +57,7 @@ export default function Home() {
           onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
         />
 
-        {/* Right-Side Floating Section Scroll Indicator */}
+        {/* Right Side Floating Section Scroll Indicator */}
         <ScrollIndicator
           activeSection={activeSection}
           onActiveSectionChange={setActiveSection}

@@ -28,7 +28,7 @@ export function ScrollIndicator({ activeSection: controlledActive, onActiveSecti
   const [hoveredSection, setHoveredSection] = React.useState<string | null>(null);
 
   React.useEffect(() => {
-    // High-performance IntersectionObserver instead of layout-thrashing offsetTop queries
+    // High performance IntersectionObserver instead of layout thrashing offsetTop queries
     const observerCallback: IntersectionObserverCallback = (entries) => {
       // Find the entry that has the highest intersection ratio or is currently intersecting
       const intersecting = entries.filter((e) => e.isIntersecting);
@@ -101,7 +101,7 @@ export function ScrollIndicator({ activeSection: controlledActive, onActiveSecti
                 aria-current={isActive ? "location" : undefined}
                 className="relative flex items-center justify-center w-8 min-h-[28px] focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 rounded-full cursor-pointer group"
               >
-                {/* GPU-composited scaleX transform instead of reflow-triggering width animation */}
+                {/* GPU composited scaleX transform instead of reflow triggering width animation */}
                 <motion.div
                   animate={{
                     scaleX: isActive ? 1 : isHovered ? 0.65 : 0.32,

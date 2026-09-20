@@ -27,7 +27,7 @@ export function SkillsSection() {
           Technologies & Architecture
         </h2>
         <p className="text-sm sm:text-base text-zinc-400 max-w-2xl font-light leading-relaxed">
-          A disciplined set of systems-level languages, asynchronous pipelines, and modern web frameworks used to engineer resilient digital systems.
+          A disciplined set of systems level languages, asynchronous pipelines, and modern web frameworks used to engineer resilient digital systems.
         </p>
       </motion.div>
 

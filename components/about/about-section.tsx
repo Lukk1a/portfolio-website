@@ -27,7 +27,7 @@ export function AboutSection() {
           </h2>
 
           <p className="text-base text-zinc-400 font-light leading-relaxed">
-            As a systems and web developer, I favor clean memory models, compile-time type safety, and architectures
+            As a systems and web developer, I favor clean memory models, compile time type safety, and architectures
             that feel instant and unyielding under heavy load. From native engines
             to async web pipelines, the discipline stays the same: measure first,
             abstract only what earns its cost.
@@ -37,8 +37,8 @@ export function AboutSection() {
             {[
               "Deterministic simulation over heuristic guessing",
               "Linear arena memory allocation preventing fragmentation",
-              "Sub-100ms interaction feedback across web surfaces",
-              "Zero-dependency core logic where latency is critical",
+              "Sub 100ms interaction feedback across web surfaces",
+              "Zero dependency core logic where latency is critical",
             ].map((rule, idx) => (
               <div key={rule} className="flex items-start gap-3 text-xs text-zinc-400 font-mono">
                 <span className="text-zinc-400 font-semibold flex-shrink-0">
@@ -52,7 +52,7 @@ export function AboutSection() {
 
         {/* Asymmetrical Bento Grid (Right) */}
         <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Hero Bento Tile: Systems & Memory Models (Full-width top) */}
+          {/* Hero Bento Tile: Systems & Memory Models (Full width top) */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export function AboutSection() {
               </span>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed font-light mb-2">
-              Data-oriented architectures designed around CPU cache lines, deterministic fixed-timestep simulation loops, and custom contiguous memory arenas preventing heap churn.
+              Data oriented architectures designed around CPU cache lines, deterministic fixed timestep simulation loops, and custom contiguous memory arenas preventing heap churn.
             </p>
 
             {/* Contiguous Memory Arena Visualizer */}
@@ -98,7 +98,7 @@ export function AboutSection() {
             </div>
 
             <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-white/[0.06] text-[11px] font-mono text-zinc-400">
-              <span className="px-2 py-0.5 rounded bg-black/60 border border-white/[0.06]">CACHE-CONSCIOUS</span>
+              <span className="px-2 py-0.5 rounded bg-black/60 border border-white/[0.06]">CACHE CONSCIOUS</span>
               <span className="px-2 py-0.5 rounded bg-black/60 border border-white/[0.06]">ARENA POOLS</span>
               <span className="px-2 py-0.5 rounded bg-black/60 border border-white/[0.06]">&lt; 0.4ms TICK</span>
             </div>
@@ -126,7 +126,7 @@ export function AboutSection() {
                 Web Architecture
               </h3>
               <p className="text-xs text-zinc-400 leading-relaxed font-light">
-                Strict type contracts, Next.js standalone container runtimes, and sub-100ms response cycles.
+                Strict type contracts, Next.js standalone container runtimes, and sub 100ms response cycles.
               </p>
             </div>
           </motion.div>
@@ -153,12 +153,12 @@ export function AboutSection() {
                 Game Netcode & Replication
               </h3>
               <p className="text-xs text-zinc-400 leading-relaxed font-light">
-                Delta compression packets, client-side extrapolation, and authoritative state loops.
+                Delta compression packets, client side extrapolation, and authoritative state loops.
               </p>
             </div>
           </motion.div>
 
-          {/* Bento Tile 4: Automation & CI/CD (Full-width base) */}
+          {/* Bento Tile 4: Automation & CI/CD (Full width base) */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -176,12 +176,12 @@ export function AboutSection() {
                   Automated Verification & CI/CD
                 </h3>
                 <p className="text-xs text-zinc-400 leading-relaxed font-light">
-                  Multi-stage Docker containers, cached build runners, and automated GitHub Actions pipelines.
+                  Multi stage Docker containers, cached build runners, and automated GitHub Actions pipelines.
                 </p>
               </div>
             </div>
             <span className="hidden sm:inline-block font-mono text-[10px] text-zinc-400 bg-black/60 px-2.5 py-1 rounded-md border border-white/[0.06] flex-shrink-0">
-              DOCKER / CI-CD
+              DOCKER / CI/CD
             </span>
           </motion.div>
         </div>

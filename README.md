@@ -1,4 +1,4 @@
-# Luka Pajkanovic — Developer Portfolio
+# Luka Pajkanovic | Developer Portfolio
 
 <div align="center">
 
@@ -10,7 +10,7 @@
 [![Docker](https://img.shields.io/badge/Docker-Multi--stage-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**High-performance personal engineering portfolio presenting systems programming, low-latency architectures, and modern web applications.**
+**High performance personal engineering portfolio presenting systems programming, low latency architectures, and modern web applications.**
 
 [Live Site (lukka.dev)](https://lukka.dev) • [GitHub Repository](https://github.com/Lukk1a/portfolio-website)
 
@@ -20,14 +20,14 @@
 
 ## Overview & Architectural Philosophy
 
-This portfolio is engineered with a systems-first mindset: **measure first, abstract only what earns its cost, and design interfaces with deterministic precision**.
+This portfolio is engineered with a systems first mindset: **measure first, abstract only what earns its cost, and design interfaces with deterministic precision**.
 
 ### Core Tenets
-- **Deterministic Engineering**: Emphasizing predictable memory models, compile-time invariants, and deterministic simulation loops over heuristic guessing.
+- **Deterministic Engineering**: Emphasizing predictable memory models, compile time invariants, and deterministic simulation loops over heuristic guessing.
 - **Aesthetic Excellence**: Built with a custom dark OLED color system (`#000000` base, subtle `#0c0c0c` and `zinc-950` translucent layers, hairline `border-white/[0.08]` dividers, and vibrant sky-blue `#38bdf8` accent points).
-- **Zero-Breakage CI/CD**: Automated GitHub Actions pipeline verifying TypeScript strict types, ESLint rules, and multi-stage Next.js standalone container builds on every commit.
+- **Zero-Breakage CI/CD**: Automated GitHub Actions pipeline verifying TypeScript strict types, ESLint rules, and multi stage Next.js standalone container builds on every commit.
 - **Inclusive Accessibility (WCAG 2.2 AA)**: Semantic HTML landmarks, accessible dialog focus traps, high-contrast `:focus-visible` rings, `>=44px` touch targets, and full screen reader compatibility.
-- **Hardware-Accelerated Motion**: Physical spring dynamics choreographed with Framer Motion, automatically respecting OS-level reduced-motion preferences without layout thrashing.
+- **Hardware Accelerated Motion**: Physical spring dynamics choreographed with Framer Motion, automatically respecting OS-level reduced-motion preferences without layout thrashing.
 
 ---
 

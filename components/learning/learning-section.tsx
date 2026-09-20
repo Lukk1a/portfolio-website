@@ -25,7 +25,7 @@ export function LearningSection() {
           Active Engineering Radar
         </h2>
         <p className="text-sm sm:text-base text-zinc-400 font-light max-w-2xl leading-relaxed">
-          Focused exploration tracks pushing deeper into low-latency concurrency, graphics shaders, and distributed consensus models.
+          Focused exploration tracks pushing deeper into low latency concurrency, graphics shaders, and distributed consensus models.
         </p>
       </motion.div>
 

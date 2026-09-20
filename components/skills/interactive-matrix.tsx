@@ -15,7 +15,7 @@ export function InteractiveMatrix() {
 
   return (
     <div className="relative w-full rounded-2xl border border-white/[0.08] bg-zinc-950/60 p-1.5 sm:p-2 mb-16 overflow-hidden">
-      {/* Inner Core Container (Double-Bezel Architecture) */}
+      {/* Inner Core Container (Double Bezel Architecture) */}
       <div className="relative rounded-xl border border-white/[0.06] bg-[#0c0c0c]/90 p-4 sm:p-6 md:p-8 overflow-hidden backdrop-blur-md">
         {/* Typographic Matrix Layout */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center min-h-[260px]">

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { portfolioConfig } from "@/config/portfolio";
 
-export const alt = "Luka Pajkanovic — Systems & Web Developer";
+export const alt = "Luka Pajkanovic | Systems & Web Developer";
 export const size = {
   width: 1200,
   height: 630,
