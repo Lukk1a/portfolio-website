@@ -13,6 +13,7 @@ interface NavbarProps {
 const NAV_ITEMS = [
   { id: "skills", label: "STACK" },
   { id: "about", label: "PRINCIPLES" },
+  { id: "projects", label: "SHOWCASE" },
   { id: "learning", label: "RADAR" },
   { id: "contact", label: "CONTACT" },
 ] as const;

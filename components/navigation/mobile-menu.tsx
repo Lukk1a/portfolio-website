@@ -17,8 +17,9 @@ const MENU_ITEMS = [
   { label: "Overview", id: "hero", index: "00" },
   { label: "Technologies & Stack", id: "skills", index: "01" },
   { label: "Engineering Principles", id: "about", index: "02" },
-  { label: "Research Radar", id: "learning", index: "03" },
-  { label: "Contact", id: "contact", index: "04" },
+  { label: "Showcase Projects", id: "projects", index: "03" },
+  { label: "Research Radar", id: "learning", index: "04" },
+  { label: "Contact", id: "contact", index: "05" },
 ] as const;
 
 export function MobileMenu({ isOpen, onClose, onToast }: MobileMenuProps) {

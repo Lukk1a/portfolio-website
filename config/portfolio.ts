@@ -30,6 +30,16 @@ export interface CurrentlyLearningItem {
   milestone: string;
 }
 
+export interface ProjectItem {
+  id: string;
+  title: string;
+  description: string;
+  techStack: string[];
+  link?: string;
+  github?: string;
+  status: "Completed" | "In Progress" | "Archived";
+}
+
 export interface PortfolioConfig {
   siteUrl: string;
   personal: {
@@ -53,6 +63,7 @@ export interface PortfolioConfig {
   matrixLanguages: MatrixLanguage[];
   skillCategories: SkillCategory[];
   currentlyLearning: CurrentlyLearningItem[];
+  projects: ProjectItem[];
 }
 
 export const portfolioConfig: PortfolioConfig = {
@@ -186,5 +197,18 @@ export const portfolioConfig: PortfolioConfig = {
       note: "Researching raft consensus, deterministic state replication across unreliable networks, and edge caching.",
       milestone: "Prototyping state replication over unreliable UDP",
     },
+  ],
+  
+  // Showcase Projects
+  projects: [
+    {
+      id: "hcr-battlebot",
+      title: "HCR-1 Battlebot Website",
+      description: "A premium 3D-inspired website for the HAN Competitive Robotics team. Built from scratch with Next.js 15, Framer Motion, and Tailwind CSS. Features dynamic layouts, highly optimized assets, and a fully automated Vercel deployment pipeline.",
+      techStack: ["Next.js 15", "React 19", "Tailwind CSS", "Framer Motion", "Vercel"],
+      link: "https://hrc.lukka.dev",
+      github: "https://github.com/Lukk1a/hrc-website",
+      status: "Completed",
+    }
   ],
 };

@@ -9,6 +9,7 @@ import { CopyToast } from "@/components/ui/copy-toast";
 import { HeroSection } from "@/components/hero/hero-section";
 import { SkillsSection } from "@/components/skills/skills-section";
 import { AboutSection } from "@/components/about/about-section";
+import { ProjectsSection } from "@/components/projects/projects-section";
 import { LearningSection } from "@/components/learning/learning-section";
 import { ContactSection } from "@/components/contact/contact-section";
 import { Footer } from "@/components/footer/footer";
@@ -68,6 +69,7 @@ export default function Home() {
           <HeroSection />
           <SkillsSection />
           <AboutSection />
+          <ProjectsSection />
           <LearningSection />
           <ContactSection onToast={showToast} />
         </main>
