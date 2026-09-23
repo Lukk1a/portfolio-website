@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { portfolioConfig } from "@/config/portfolio";
 import { SectionMarker } from "@/components/ui/section-marker";
-import { ExternalLink, Github, Layers } from "lucide-react";
+import { ExternalLink, Layers } from "lucide-react";
+import { GithubIcon } from "@/components/ui/icons";
 import Link from "next/link";
 
 export function ProjectsSection() {
@@ -89,7 +90,7 @@ export function ProjectsSection() {
                   )}
                   {project.github && (
                     <Link href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-mono hover:text-white transition-colors">
-                      <Github className="w-4 h-4" />
+                      <GithubIcon className="w-4 h-4" />
                       <span>SOURCE</span>
                     </Link>
                   )}
