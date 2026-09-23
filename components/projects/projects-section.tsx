@@ -46,21 +46,6 @@ export function ProjectsSection() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between font-mono text-[11px]">
                   <span className="text-zinc-400 font-medium">PROJECT</span>
-                  <div className="flex items-center gap-1.5">
-                    {project.status === "In Progress" && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                    )}
-                    {project.status === "Completed" && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                    )}
-                    <span className={`px-2.5 py-0.5 rounded-full border font-mono text-[10px] ${
-                      project.status === "Completed"
-                        ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-300"
-                        : "bg-white/[0.04] border-white/[0.08] text-zinc-400"
-                    }`}>
-                      {project.status}
-                    </span>
-                  </div>
                 </div>
 
                 <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug">

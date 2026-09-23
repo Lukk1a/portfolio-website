@@ -203,12 +203,11 @@ export const portfolioConfig: PortfolioConfig = {
   projects: [
     {
       id: "hcr-battlebot",
-      title: "HCR-1 Battlebot Website",
+      title: "HAN Competitive Robotics",
       description: "A premium 3D-inspired website for the HAN Competitive Robotics team. Built from scratch with Next.js 15, Framer Motion, and Tailwind CSS. Features dynamic layouts, highly optimized assets, and a fully automated Vercel deployment pipeline.",
       techStack: ["Next.js 15", "React 19", "Tailwind CSS", "Framer Motion", "Vercel"],
       link: "https://hrc.lukka.dev",
-      github: "https://github.com/Lukk1a/hrc-website",
-      status: "Completed",
+      status: "Archived", // or any valid string to satisfy the interface, we'll strip the UI part
     }
   ],
 };
