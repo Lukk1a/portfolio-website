@@ -13,7 +13,11 @@ export function SkillsSection() {
       aria-labelledby="skills-heading"
       className="py-24 sm:py-32 px-6 sm:px-8 max-w-6xl mx-auto border-t border-border-subtle scroll-mt-16 sm:scroll-mt-20"
     >
-      <SectionMarker number="01" label="TECHNICAL STACK & CAPABILITIES" tag="// STACK" />
+      <SectionMarker
+        number="01"
+        label="TECHNICAL STACK & CAPABILITIES"
+        tag="// STACK"
+      />
 
       {/* Section Title */}
       <motion.div
@@ -23,11 +27,15 @@ export function SkillsSection() {
         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         className="mb-12 space-y-3"
       >
-        <h2 id="skills-heading" className="text-3xl sm:text-5xl font-serif font-medium tracking-tight text-white">
+        <h2
+          id="skills-heading"
+          className="text-3xl sm:text-5xl font-serif font-medium tracking-tight text-content-primary"
+        >
           Technologies & Architecture
         </h2>
         <p className="text-sm sm:text-base text-content-secondary max-w-2xl font-light leading-relaxed">
-          A disciplined set of systems level languages, asynchronous pipelines, and modern web frameworks used to engineer resilient digital systems.
+          A disciplined set of systems level languages, asynchronous pipelines,
+          and modern web frameworks used to engineer resilient digital systems.
         </p>
       </motion.div>
 

@@ -10,7 +10,9 @@ export function InteractiveMatrix() {
   const [activeLang, setActiveLang] = React.useState<string | null>("C++");
 
   const selectedData = React.useMemo(() => {
-    return portfolioConfig.matrixLanguages.find((l) => l.name === activeLang) || null;
+    return (
+      portfolioConfig.matrixLanguages.find((l) => l.name === activeLang) || null
+    );
   }, [activeLang]);
 
   return (
@@ -41,22 +43,27 @@ export function InteractiveMatrix() {
                     onKeyDown={(e) => {
                       if (e.key === "ArrowRight") {
                         e.preventDefault();
-                        const next = (idx + 1) % portfolioConfig.matrixLanguages.length;
-                        const nextLang = portfolioConfig.matrixLanguages[next].name;
+                        const next =
+                          (idx + 1) % portfolioConfig.matrixLanguages.length;
+                        const nextLang =
+                          portfolioConfig.matrixLanguages[next].name;
                         setActiveLang(nextLang);
                         document.getElementById(`tab-${nextLang}`)?.focus();
                       } else if (e.key === "ArrowLeft") {
                         e.preventDefault();
-                        const prev = (idx - 1 + portfolioConfig.matrixLanguages.length) % portfolioConfig.matrixLanguages.length;
-                        const prevLang = portfolioConfig.matrixLanguages[prev].name;
+                        const prev =
+                          (idx - 1 + portfolioConfig.matrixLanguages.length) %
+                          portfolioConfig.matrixLanguages.length;
+                        const prevLang =
+                          portfolioConfig.matrixLanguages[prev].name;
                         setActiveLang(prevLang);
                         document.getElementById(`tab-${prevLang}`)?.focus();
                       }
                     }}
                     className={`relative px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl font-mono text-xl sm:text-3xl md:text-4xl font-semibold tracking-tight transition-all duration-150 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 interactive-press min-h-[44px] inline-flex items-center ${
                       isActive
-                        ? "text-white bg-white/[0.08] border border-white/20 shadow-lg shadow-sky-500/5"
-                        : "text-content-secondary hover:text-white border border-transparent hover:bg-white/[0.03]"
+                        ? "text-content-primary bg-white/[0.08] border border-white/20 shadow-lg shadow-sky-500/5"
+                        : "text-content-secondary hover:text-content-primary border border-transparent hover:bg-white/[0.03]"
                     }`}
                     aria-label={`Inspect ${lang.name} specifications`}
                   >
@@ -65,7 +72,11 @@ export function InteractiveMatrix() {
                       <motion.div
                         layoutId="active-language-indicator"
                         className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-sky-400 shadow-[0_0_8px_rgba(56,189,248,0.8)]"
-                        transition={{ type: "spring", stiffness: 400, damping: 26 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 26,
+                        }}
                       />
                     )}
                   </button>
@@ -94,10 +105,17 @@ export function InteractiveMatrix() {
                 >
                   <div className="flex items-center justify-between border-b border-border-subtle pb-2.5 text-xs">
                     <div className="flex items-center gap-2">
-                      <Code2 className="w-3.5 h-3.5 text-sky-400" aria-hidden="true" />
-                      <span className="text-sky-400 font-semibold">{selectedData.name}</span>
+                      <Code2
+                        className="w-3.5 h-3.5 text-sky-400"
+                        aria-hidden="true"
+                      />
+                      <span className="text-sky-400 font-semibold">
+                        {selectedData.name}
+                      </span>
                     </div>
-                    <span className="text-[11px] text-content-secondary">{selectedData.domain}</span>
+                    <span className="text-[11px] text-content-secondary">
+                      {selectedData.domain}
+                    </span>
                   </div>
 
                   <p className="text-xs text-content-primary leading-relaxed font-sans font-light">
@@ -105,8 +123,13 @@ export function InteractiveMatrix() {
                   </p>
 
                   <div className="flex items-center gap-2 pt-1 text-[11px] text-content-secondary border-t border-border-subtle">
-                    <Terminal className="w-3 h-3 text-sky-400 shrink-0" aria-hidden="true" />
-                    <code className="text-content-primary font-mono overflow-x-auto whitespace-nowrap">{selectedData.levelSnippet}</code>
+                    <Terminal
+                      className="w-3 h-3 text-sky-400 shrink-0"
+                      aria-hidden="true"
+                    />
+                    <code className="text-content-primary font-mono overflow-x-auto whitespace-nowrap">
+                      {selectedData.levelSnippet}
+                    </code>
                   </div>
                 </motion.div>
               ) : null}

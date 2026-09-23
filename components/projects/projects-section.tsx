@@ -14,7 +14,11 @@ export function ProjectsSection() {
       aria-labelledby="projects-heading"
       className="py-24 sm:py-32 px-6 sm:px-8 max-w-6xl mx-auto border-t border-border-subtle scroll-mt-16 sm:scroll-mt-20"
     >
-      <SectionMarker number="04" label="SHOWCASE PROJECTS" tag="// ARCHITECTURE" />
+      <SectionMarker
+        number="04"
+        label="SHOWCASE PROJECTS"
+        tag="// ARCHITECTURE"
+      />
 
       <motion.div
         initial={{ opacity: 0, y: 14 }}
@@ -23,11 +27,15 @@ export function ProjectsSection() {
         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         className="mb-12 space-y-3"
       >
-        <h2 id="projects-heading" className="text-3xl sm:text-5xl font-serif font-medium tracking-tight text-white">
+        <h2
+          id="projects-heading"
+          className="text-3xl sm:text-5xl font-serif font-medium tracking-tight text-content-primary"
+        >
           Selected Works
         </h2>
         <p className="text-sm sm:text-base text-content-secondary font-light max-w-2xl leading-relaxed">
-          A showcase of recent systems, web architectures, and high-performance applications built from the ground up.
+          A showcase of recent systems, web architectures, and high-performance
+          applications built from the ground up.
         </p>
       </motion.div>
 
@@ -39,16 +47,22 @@ export function ProjectsSection() {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: idx * 0.06, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                delay: idx * 0.06,
+                duration: 0.35,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               whileHover={{ y: -2 }}
               className="group relative p-6 sm:p-8 rounded-2xl bg-surface-100 border border-border-subtle hover:border-border-subtle transition-all duration-150 flex flex-col justify-between"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between font-mono text-[11px]">
-                  <span className="text-content-secondary font-medium">PROJECT</span>
+                  <span className="text-content-secondary font-medium">
+                    PROJECT
+                  </span>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-serif font-medium text-white tracking-tight leading-snug">
+                <h3 className="text-lg sm:text-xl font-medium text-content-primary tracking-tight leading-snug">
                   {project.title}
                 </h3>
 
@@ -57,8 +71,11 @@ export function ProjectsSection() {
                 </p>
 
                 <div className="pt-2 flex flex-wrap gap-2">
-                  {project.techStack.map(tech => (
-                    <span key={tech} className="px-2.5 py-1 rounded-md bg-white/[0.04] border border-border-subtle font-mono text-[10px] text-content-primary">
+                  {project.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 rounded-md bg-white/[0.04] border border-border-subtle font-mono text-[10px] text-content-primary"
+                    >
                       {tech}
                     </span>
                   ))}
@@ -68,13 +85,23 @@ export function ProjectsSection() {
               <div className="mt-8 pt-5 border-t border-border-subtle flex items-center justify-between text-content-secondary">
                 <div className="flex items-center gap-4">
                   {project.link && (
-                    <Link href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-mono hover:text-white transition-colors">
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-xs font-mono hover:text-content-primary transition-colors"
+                    >
                       <ExternalLink className="w-4 h-4" />
                       <span>LIVE</span>
                     </Link>
                   )}
                   {project.github && (
-                    <Link href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-mono hover:text-white transition-colors">
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-xs font-mono hover:text-content-primary transition-colors"
+                    >
                       <GithubIcon className="w-4 h-4" />
                       <span>SOURCE</span>
                     </Link>

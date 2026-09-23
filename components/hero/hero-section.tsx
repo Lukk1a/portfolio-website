@@ -66,7 +66,10 @@ export function HeroSection() {
         </motion.div>
 
         {/* Engineering Specializations */}
-        <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-2 pt-1">
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-wrap items-center gap-2 pt-1"
+        >
           {portfolioConfig.personal.coreHighlights.map((tech) => (
             <span
               key={tech}
@@ -78,7 +81,10 @@ export function HeroSection() {
         </motion.div>
 
         {/* Action Buttons with Semantic Anchors and WCAG Touch Targets */}
-        <motion.div variants={itemVariants} className="pt-4 flex flex-wrap items-center gap-4">
+        <motion.div
+          variants={itemVariants}
+          className="pt-4 flex flex-wrap items-center gap-4"
+        >
           <Magnetic strength={0.2}>
             <a
               href="#skills"
@@ -91,7 +97,10 @@ export function HeroSection() {
             >
               <span>VIEW ARCHITECTURE</span>
               <div className="w-6 h-6 rounded-full bg-background/10 flex items-center justify-center group-hover:translate-y-0.5 transition-transform duration-150">
-                <ArrowDown className="w-3 h-3 text-background" aria-hidden="true" />
+                <ArrowDown
+                  className="w-3 h-3 text-background"
+                  aria-hidden="true"
+                />
               </div>
             </a>
           </Magnetic>

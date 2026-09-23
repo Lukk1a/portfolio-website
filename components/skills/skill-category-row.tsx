@@ -14,8 +14,12 @@ export function SkillCategoryRow({ category }: SkillCategoryRowProps) {
         {/* Category Header (Left column) */}
         <div className="md:col-span-4 space-y-1.5">
           <h3 className="flex items-center gap-2 font-mono text-xs text-content-secondary tracking-wider uppercase">
-            <span className="text-white font-semibold font-mono">[{category.index}]</span>
-            <span className="text-white font-medium">{category.title}</span>
+            <span className="text-content-primary font-semibold font-mono">
+              [{category.index}]
+            </span>
+            <span className="text-content-primary font-medium">
+              {category.title}
+            </span>
           </h3>
           <p className="text-xs text-content-secondary leading-relaxed max-w-xs font-light">
             {category.description}
@@ -23,7 +27,10 @@ export function SkillCategoryRow({ category }: SkillCategoryRowProps) {
         </div>
 
         {/* Tech Items List (Right column) */}
-        <ul role="list" className="md:col-span-8 flex flex-wrap gap-2 sm:gap-2.5">
+        <ul
+          role="list"
+          className="md:col-span-8 flex flex-wrap gap-2 sm:gap-2.5"
+        >
           {category.items.map((item, idx) => (
             <motion.li
               key={item.name}
@@ -49,8 +56,8 @@ export function SkillCategoryRow({ category }: SkillCategoryRowProps) {
               <span
                 className={`text-xs sm:text-sm font-medium tracking-tight transition-colors ${
                   item.highlight
-                    ? "text-white"
-                    : "text-content-primary group-hover:text-white"
+                    ? "text-content-primary"
+                    : "text-content-primary group-hover:text-content-primary"
                 }`}
               >
                 {item.name}

@@ -23,10 +23,15 @@ interface ScrollIndicatorProps {
   onActiveSectionChange?: (section: string) => void;
 }
 
-export function ScrollIndicator({ activeSection: controlledActive, onActiveSectionChange }: ScrollIndicatorProps) {
+export function ScrollIndicator({
+  activeSection: controlledActive,
+  onActiveSectionChange,
+}: ScrollIndicatorProps) {
   const [internalActive, setInternalActive] = React.useState<string>("hero");
   const activeSection = controlledActive ?? internalActive;
-  const [hoveredSection, setHoveredSection] = React.useState<string | null>(null);
+  const [hoveredSection, setHoveredSection] = React.useState<string | null>(
+    null,
+  );
 
   React.useEffect(() => {
     // High performance IntersectionObserver instead of layout thrashing offsetTop queries
@@ -70,7 +75,10 @@ export function ScrollIndicator({ activeSection: controlledActive, onActiveSecti
           const isHovered = hoveredSection === id;
 
           return (
-            <div key={id} className="relative flex items-center justify-center z-10">
+            <div
+              key={id}
+              className="relative flex items-center justify-center z-10"
+            >
               {/* Tooltip on Hover */}
               <AnimatePresence>
                 {isHovered && (
@@ -79,7 +87,7 @@ export function ScrollIndicator({ activeSection: controlledActive, onActiveSecti
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     exit={{ opacity: 0, x: 4, scale: 0.95 }}
                     transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute right-full mr-3 px-2.5 py-1 rounded-md bg-surface-100 border border-border-subtle text-[11px] font-mono text-white whitespace-nowrap shadow-xl pointer-events-none backdrop-blur-md flex items-center gap-1"
+                    className="absolute right-full mr-3 px-2.5 py-1 rounded-md bg-surface-100 border border-border-subtle text-[11px] font-mono text-content-primary whitespace-nowrap shadow-xl pointer-events-none backdrop-blur-md flex items-center gap-1"
                   >
                     <span>{label}</span>
                     <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-1.5 h-1.5 rotate-45 bg-surface-50 border-r border-t border-border-subtle" />
@@ -110,8 +118,8 @@ export function ScrollIndicator({ activeSection: controlledActive, onActiveSecti
                     backgroundColor: isActive
                       ? "#ffffff"
                       : isHovered
-                      ? "rgba(255, 255, 255, 0.7)"
-                      : "rgba(255, 255, 255, 0.25)",
+                        ? "rgba(255, 255, 255, 0.7)"
+                        : "rgba(255, 255, 255, 0.25)",
                   }}
                   transition={{
                     type: "spring",

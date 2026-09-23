@@ -33,7 +33,7 @@ export function MobileMenu({ isOpen, onClose, onToast }: MobileMenuProps) {
 
       // Focus first focusable element inside the modal
       const focusables = dialogRef.current?.querySelectorAll<HTMLElement>(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
       );
       focusables?.[0]?.focus();
 
@@ -45,9 +45,10 @@ export function MobileMenu({ isOpen, onClose, onToast }: MobileMenuProps) {
 
         // Trap focus inside dialog
         if (e.key === "Tab") {
-          const currentFocusables = dialogRef.current?.querySelectorAll<HTMLElement>(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-          );
+          const currentFocusables =
+            dialogRef.current?.querySelectorAll<HTMLElement>(
+              'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+            );
           if (!currentFocusables || currentFocusables.length === 0) return;
 
           const first = currentFocusables[0];
@@ -106,12 +107,12 @@ export function MobileMenu({ isOpen, onClose, onToast }: MobileMenuProps) {
         >
           {/* Top Bar */}
           <div className="flex items-center justify-between border-b border-border-subtle pb-6">
-            <div className="flex items-center gap-2 font-mono text-xs tracking-wider text-white font-semibold">
+            <div className="flex items-center gap-2 font-mono text-xs tracking-wider text-content-primary font-semibold">
               <span>{portfolioConfig.personal.fullName}</span>
             </div>
             <button
               onClick={onClose}
-              className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-white/[0.05] border border-border-subtle text-content-secondary hover:text-white flex items-center justify-center cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
+              className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-white/[0.05] border border-border-subtle text-content-secondary hover:text-content-primary flex items-center justify-center cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
               aria-label="Close menu"
             >
               <X className="w-5 h-5" aria-hidden="true" />
@@ -135,12 +136,17 @@ export function MobileMenu({ isOpen, onClose, onToast }: MobileMenuProps) {
                     className="flex items-center justify-between text-left group py-2.5 cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 rounded-lg"
                   >
                     <div className="flex items-baseline gap-3">
-                      <span className="font-mono text-xs text-content-secondary font-semibold">[{item.index}]</span>
-                      <span className="text-2xl sm:text-3xl font-light tracking-tight text-zinc-200 group-hover:text-white group-hover:translate-x-2 transition-transform">
+                      <span className="font-mono text-xs text-content-secondary font-semibold">
+                        [{item.index}]
+                      </span>
+                      <span className="text-2xl sm:text-3xl font-light tracking-tight text-zinc-200 group-hover:text-content-primary group-hover:translate-x-2 transition-transform">
                         {item.label}
                       </span>
                     </div>
-                    <span aria-hidden="true" className="font-mono text-xs text-content-secondary group-hover:text-white transition-colors">
+                    <span
+                      aria-hidden="true"
+                      className="font-mono text-xs text-content-secondary group-hover:text-content-primary transition-colors"
+                    >
                       →
                     </span>
                   </motion.a>
@@ -155,9 +161,12 @@ export function MobileMenu({ isOpen, onClose, onToast }: MobileMenuProps) {
               href={portfolioConfig.social.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="min-h-[44px] px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-border-subtle hover:border-white/20 flex items-center gap-2 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
+              className="min-h-[44px] px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-border-subtle hover:border-white/20 flex items-center gap-2 hover:text-content-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
             >
-              <GithubIcon className="w-3.5 h-3.5 text-content-secondary" aria-hidden="true" />
+              <GithubIcon
+                className="w-3.5 h-3.5 text-content-secondary"
+                aria-hidden="true"
+              />
               <span>Repository</span>
               <span className="sr-only"> (opens in new tab)</span>
             </a>
@@ -165,26 +174,37 @@ export function MobileMenu({ isOpen, onClose, onToast }: MobileMenuProps) {
               href={portfolioConfig.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="min-h-[44px] px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-border-subtle hover:border-white/20 flex items-center gap-2 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
+              className="min-h-[44px] px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-border-subtle hover:border-white/20 flex items-center gap-2 hover:text-content-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
             >
-              <GithubIcon className="w-3.5 h-3.5 text-content-secondary" aria-hidden="true" />
+              <GithubIcon
+                className="w-3.5 h-3.5 text-content-secondary"
+                aria-hidden="true"
+              />
               <span>GitHub</span>
               <span className="sr-only"> (opens in new tab)</span>
             </a>
             <button
               onClick={() => copyItem(portfolioConfig.social.email, "Email")}
               aria-label="Copy email address to clipboard"
-              className="min-h-[44px] px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-border-subtle hover:border-white/20 flex items-center gap-2 hover:text-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
+              className="min-h-[44px] px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-border-subtle hover:border-white/20 flex items-center gap-2 hover:text-content-primary transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
             >
-              <Mail className="w-3.5 h-3.5 text-content-secondary" aria-hidden="true" />
+              <Mail
+                className="w-3.5 h-3.5 text-content-secondary"
+                aria-hidden="true"
+              />
               <span>Email</span>
             </button>
             <button
-              onClick={() => copyItem(portfolioConfig.social.discord, "Discord handle")}
+              onClick={() =>
+                copyItem(portfolioConfig.social.discord, "Discord handle")
+              }
               aria-label="Copy Discord handle to clipboard"
-              className="min-h-[44px] px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-border-subtle hover:border-white/20 flex items-center gap-2 hover:text-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
+              className="min-h-[44px] px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-border-subtle hover:border-white/20 flex items-center gap-2 hover:text-content-primary transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
             >
-              <DiscordIcon className="w-3.5 h-3.5 text-content-secondary" aria-hidden="true" />
+              <DiscordIcon
+                className="w-3.5 h-3.5 text-content-secondary"
+                aria-hidden="true"
+              />
               <span>Discord</span>
             </button>
           </div>

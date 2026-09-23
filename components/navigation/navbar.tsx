@@ -18,7 +18,10 @@ const NAV_ITEMS = [
   { id: "contact", label: "CONTACT" },
 ] as const;
 
-export function Navbar({ activeSection = "hero", onOpenMobileMenu }: NavbarProps) {
+export function Navbar({
+  activeSection = "hero",
+  onOpenMobileMenu,
+}: NavbarProps) {
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
@@ -58,15 +61,21 @@ export function Navbar({ activeSection = "hero", onOpenMobileMenu }: NavbarProps
             className="group flex items-center gap-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 rounded-md p-2 -ml-2 cursor-pointer"
             aria-label={`${portfolioConfig.personal.name}: Scroll to top`}
           >
-            <span className="font-mono text-sm tracking-wider text-white font-semibold group-hover:text-content-primary transition-colors">
+            <span className="font-mono text-sm tracking-wider text-content-primary font-semibold group-hover:text-content-primary transition-colors">
               {portfolioConfig.personal.name}
             </span>
-            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white transition-colors" />
+            <span
+              aria-hidden="true"
+              className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white transition-colors"
+            />
           </a>
         </div>
 
         {/* Desktop Nav Items */}
-        <nav aria-label="Main navigation" className="hidden md:flex items-center font-mono text-xs tracking-wider uppercase">
+        <nav
+          aria-label="Main navigation"
+          className="hidden md:flex items-center font-mono text-xs tracking-wider uppercase"
+        >
           <ul role="list" className="flex items-center gap-2 sm:gap-3">
             {NAV_ITEMS.map((item) => {
               const isActive = activeSection === item.id;
@@ -81,8 +90,8 @@ export function Navbar({ activeSection = "hero", onOpenMobileMenu }: NavbarProps
                     aria-current={isActive ? "location" : undefined}
                     className={`relative inline-block px-3 py-1.5 rounded-md transition-all duration-150 cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 ${
                       isActive
-                        ? "text-white bg-white/[0.08] font-medium"
-                        : "text-content-secondary hover:text-white"
+                        ? "text-content-primary bg-white/[0.08] font-medium"
+                        : "text-content-secondary hover:text-content-primary"
                     }`}
                   >
                     <span>{item.label}</span>
@@ -100,7 +109,7 @@ export function Navbar({ activeSection = "hero", onOpenMobileMenu }: NavbarProps
             aria-expanded={false}
             aria-controls="mobile-menu"
             aria-label="Open mobile navigation menu"
-            className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-white/[0.04] border border-border-subtle text-content-secondary hover:text-white interactive-press flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
+            className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-white/[0.04] border border-border-subtle text-content-secondary hover:text-content-primary interactive-press flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
           >
             <Menu className="w-4 h-4" aria-hidden="true" />
           </button>
