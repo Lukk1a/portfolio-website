@@ -42,7 +42,7 @@ export function Navbar({ activeSection = "hero", onOpenMobileMenu }: NavbarProps
     <header
       className={`fixed top-0 left-0 right-0 z-40 border-b transition-[background-color,border-color,padding] duration-200 ${
         isScrolled
-          ? "bg-black/80 backdrop-blur-md border-white/[0.08] py-3.5"
+          ? "bg-black/80 backdrop-blur-md border-border-subtle py-3.5"
           : "bg-black/0 border-transparent py-5 sm:py-6"
       }`}
     >
@@ -58,7 +58,7 @@ export function Navbar({ activeSection = "hero", onOpenMobileMenu }: NavbarProps
             className="group flex items-center gap-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 rounded-md p-2 -ml-2 cursor-pointer"
             aria-label={`${portfolioConfig.personal.name}: Scroll to top`}
           >
-            <span className="font-mono text-sm tracking-wider text-white font-semibold group-hover:text-zinc-300 transition-colors">
+            <span className="font-mono text-sm tracking-wider text-white font-semibold group-hover:text-content-primary transition-colors">
               {portfolioConfig.personal.name}
             </span>
             <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white transition-colors" />
@@ -82,7 +82,7 @@ export function Navbar({ activeSection = "hero", onOpenMobileMenu }: NavbarProps
                     className={`relative inline-block px-3 py-1.5 rounded-md transition-all duration-150 cursor-pointer interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 ${
                       isActive
                         ? "text-white bg-white/[0.08] font-medium"
-                        : "text-zinc-400 hover:text-white"
+                        : "text-content-secondary hover:text-white"
                     }`}
                   >
                     <span>{item.label}</span>
@@ -100,7 +100,7 @@ export function Navbar({ activeSection = "hero", onOpenMobileMenu }: NavbarProps
             aria-expanded={false}
             aria-controls="mobile-menu"
             aria-label="Open mobile navigation menu"
-            className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-white/[0.04] border border-white/[0.08] text-zinc-400 hover:text-white interactive-press flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
+            className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-white/[0.04] border border-border-subtle text-content-secondary hover:text-white interactive-press flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
           >
             <Menu className="w-4 h-4" aria-hidden="true" />
           </button>

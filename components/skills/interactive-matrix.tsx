@@ -14,9 +14,9 @@ export function InteractiveMatrix() {
   }, [activeLang]);
 
   return (
-    <div className="relative w-full rounded-2xl border border-white/[0.08] bg-zinc-950/60 p-1.5 sm:p-2 mb-16 overflow-hidden">
+    <div className="relative w-full rounded-2xl border border-border-subtle bg-surface-100 p-1.5 sm:p-2 mb-16 overflow-hidden">
       {/* Inner Core Container (Double Bezel Architecture) */}
-      <div className="relative rounded-xl border border-white/[0.06] bg-[#0c0c0c]/90 p-4 sm:p-6 md:p-8 overflow-hidden backdrop-blur-md">
+      <div className="relative rounded-xl border border-border-subtle bg-[#0c0c0c]/90 p-4 sm:p-6 md:p-8 overflow-hidden backdrop-blur-md">
         {/* Typographic Matrix Layout */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center min-h-[260px]">
           {/* Typographic Cloud with Magnetic Pull (Left) */}
@@ -56,7 +56,7 @@ export function InteractiveMatrix() {
                     className={`relative px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl font-mono text-xl sm:text-3xl md:text-4xl font-semibold tracking-tight transition-all duration-150 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 interactive-press min-h-[44px] inline-flex items-center ${
                       isActive
                         ? "text-white bg-white/[0.08] border border-white/20 shadow-lg shadow-sky-500/5"
-                        : "text-zinc-400 hover:text-white border border-transparent hover:bg-white/[0.03]"
+                        : "text-content-secondary hover:text-white border border-transparent hover:bg-white/[0.03]"
                     }`}
                     aria-label={`Inspect ${lang.name} specifications`}
                   >
@@ -90,23 +90,23 @@ export function InteractiveMatrix() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                  className="p-5 sm:p-6 rounded-xl bg-white/[0.03] border border-white/[0.12] space-y-3 font-mono shadow-2xl relative overflow-hidden backdrop-blur-sm"
+                  className="p-5 sm:p-6 rounded-xl bg-white/[0.03] border border-border-subtle space-y-3 font-mono shadow-2xl relative overflow-hidden backdrop-blur-sm"
                 >
-                  <div className="flex items-center justify-between border-b border-white/[0.06] pb-2.5 text-xs">
+                  <div className="flex items-center justify-between border-b border-border-subtle pb-2.5 text-xs">
                     <div className="flex items-center gap-2">
                       <Code2 className="w-3.5 h-3.5 text-sky-400" aria-hidden="true" />
                       <span className="text-sky-400 font-semibold">{selectedData.name}</span>
                     </div>
-                    <span className="text-[11px] text-zinc-400">{selectedData.domain}</span>
+                    <span className="text-[11px] text-content-secondary">{selectedData.domain}</span>
                   </div>
 
-                  <p className="text-xs text-zinc-300 leading-relaxed font-sans font-light">
+                  <p className="text-xs text-content-primary leading-relaxed font-sans font-light">
                     {selectedData.detail}
                   </p>
 
-                  <div className="flex items-center gap-2 pt-1 text-[11px] text-zinc-400 border-t border-white/[0.04]">
+                  <div className="flex items-center gap-2 pt-1 text-[11px] text-content-secondary border-t border-border-subtle">
                     <Terminal className="w-3 h-3 text-sky-400 shrink-0" aria-hidden="true" />
-                    <code className="text-zinc-300 font-mono overflow-x-auto whitespace-nowrap">{selectedData.levelSnippet}</code>
+                    <code className="text-content-primary font-mono overflow-x-auto whitespace-nowrap">{selectedData.levelSnippet}</code>
                   </div>
                 </motion.div>
               ) : null}

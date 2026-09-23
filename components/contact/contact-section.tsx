@@ -39,7 +39,7 @@ export function ContactSection({ onToast }: ContactSectionProps) {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="py-24 sm:py-36 px-6 sm:px-8 max-w-6xl mx-auto border-t border-white/[0.08] scroll-mt-16 sm:scroll-mt-20"
+      className="py-24 sm:py-36 px-6 sm:px-8 max-w-6xl mx-auto border-t border-border-subtle scroll-mt-16 sm:scroll-mt-20"
     >
       <SectionMarker number="04" label="COMMUNICATION & COLLABORATION" tag="// DIRECT" />
 
@@ -54,12 +54,12 @@ export function ContactSection({ onToast }: ContactSectionProps) {
         >
           <h2
             id="contact-heading"
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-none select-none"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-medium tracking-tighter text-white leading-none select-none"
           >
             LET&apos;S ENGINEER <br />
             SOMETHING RESILIENT.
           </h2>
-          <p className="text-base sm:text-xl font-light text-zinc-400 max-w-xl leading-relaxed">
+          <p className="text-base sm:text-xl font-light text-content-secondary max-w-xl leading-relaxed">
             Have a low latency systems challenge, a web architecture to discuss, or looking to collaborate? Reach out directly.
           </p>
         </motion.div>
@@ -69,17 +69,17 @@ export function ContactSection({ onToast }: ContactSectionProps) {
           {/* Email Action */}
           <Magnetic strength={0.15}>
             <div
-              className="group p-6 rounded-2xl bg-zinc-950/70 hover:bg-zinc-900 border border-white/[0.08] hover:border-white/[0.22] transition-all duration-150 flex flex-col justify-between min-h-[160px] h-full relative shadow-card"
+              className="group p-6 rounded-2xl bg-surface-100 hover:bg-surface-50 border border-border-subtle hover:border-border-subtle transition-all duration-150 flex flex-col justify-between min-h-[160px] h-full relative shadow-card"
             >
-              <div className="flex items-center justify-between text-xs font-mono text-zinc-400 w-full">
+              <div className="flex items-center justify-between text-xs font-mono text-content-secondary w-full">
                 <div className="flex items-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-zinc-400" aria-hidden="true" />
+                  <Mail className="w-3.5 h-3.5 text-content-secondary" aria-hidden="true" />
                   <span>DIRECT EMAIL</span>
                 </div>
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="p-1.5 rounded bg-white/[0.05] hover:bg-white/[0.15] text-zinc-400 hover:text-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 min-h-[28px] min-w-[28px] flex items-center justify-center relative z-10"
+                  className="p-1.5 rounded bg-white/[0.05] hover:bg-white/[0.15] text-content-secondary hover:text-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 min-h-[28px] min-w-[28px] flex items-center justify-center relative z-10"
                   title="Copy email address to clipboard"
                   aria-label="Copy email address to clipboard"
                 >
@@ -99,11 +99,11 @@ export function ContactSection({ onToast }: ContactSectionProps) {
                   <span className="text-xl font-semibold tracking-tight text-zinc-200 block">
                     EMAIL
                   </span>
-                  <span className="text-[11px] font-mono text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                  <span className="text-[11px] font-mono text-content-secondary group-hover:text-content-primary transition-colors">
                     SEND MESSAGE ↗
                   </span>
                 </div>
-                <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
+                <ArrowUpRight className="w-4 h-4 text-content-secondary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
               </a>
             </div>
           </Magnetic>
@@ -114,14 +114,14 @@ export function ContactSection({ onToast }: ContactSectionProps) {
               href={portfolioConfig.social.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-6 rounded-2xl bg-zinc-950/70 hover:bg-zinc-900 border border-white/[0.08] hover:border-white/[0.22] transition-all duration-150 flex flex-col justify-between min-h-[160px] h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
+              className="group p-6 rounded-2xl bg-surface-100 hover:bg-surface-50 border border-border-subtle hover:border-border-subtle transition-all duration-150 flex flex-col justify-between min-h-[160px] h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
             >
-              <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
+              <div className="flex items-center justify-between text-xs font-mono text-content-secondary">
                 <div className="flex items-center gap-2">
-                  <GithubIcon className="w-3.5 h-3.5 text-zinc-400" aria-hidden="true" />
+                  <GithubIcon className="w-3.5 h-3.5 text-content-secondary" aria-hidden="true" />
                   <span>PORTFOLIO REPO</span>
                 </div>
-                <span className="text-[10px] text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                <span className="text-[10px] text-content-secondary group-hover:text-content-primary transition-colors">
                   [SOURCE]
                 </span>
               </div>
@@ -131,7 +131,7 @@ export function ContactSection({ onToast }: ContactSectionProps) {
                   REPOSITORY
                   <span className="sr-only"> (opens in a new tab)</span>
                 </span>
-                <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
+                <ArrowUpRight className="w-4 h-4 text-content-secondary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
               </div>
             </a>
           </Magnetic>
@@ -142,14 +142,14 @@ export function ContactSection({ onToast }: ContactSectionProps) {
               href={portfolioConfig.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-6 rounded-2xl bg-zinc-950/70 hover:bg-zinc-900 border border-white/[0.08] hover:border-white/[0.22] transition-all duration-150 flex flex-col justify-between min-h-[160px] h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
+              className="group p-6 rounded-2xl bg-surface-100 hover:bg-surface-50 border border-border-subtle hover:border-border-subtle transition-all duration-150 flex flex-col justify-between min-h-[160px] h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
             >
-              <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
+              <div className="flex items-center justify-between text-xs font-mono text-content-secondary">
                 <div className="flex items-center gap-2">
-                  <GithubIcon className="w-3.5 h-3.5 text-zinc-400" aria-hidden="true" />
+                  <GithubIcon className="w-3.5 h-3.5 text-content-secondary" aria-hidden="true" />
                   <span>REPOSITORIES</span>
                 </div>
-                <span className="text-[10px] text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                <span className="text-[10px] text-content-secondary group-hover:text-content-primary transition-colors">
                   [CODE]
                 </span>
               </div>
@@ -159,7 +159,7 @@ export function ContactSection({ onToast }: ContactSectionProps) {
                   GITHUB
                   <span className="sr-only"> (opens in a new tab)</span>
                 </span>
-                <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
+                <ArrowUpRight className="w-4 h-4 text-content-secondary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
               </div>
             </a>
           </Magnetic>
@@ -169,14 +169,14 @@ export function ContactSection({ onToast }: ContactSectionProps) {
             <button
               type="button"
               onClick={handleCopyDiscord}
-              className="group p-6 rounded-2xl bg-zinc-950/70 hover:bg-zinc-900 border border-white/[0.08] hover:border-white/[0.22] transition-all duration-150 flex flex-col justify-between min-h-[160px] h-full text-left cursor-pointer w-full interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
+              className="group p-6 rounded-2xl bg-surface-100 hover:bg-surface-50 border border-border-subtle hover:border-border-subtle transition-all duration-150 flex flex-col justify-between min-h-[160px] h-full text-left cursor-pointer w-full interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
             >
-              <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
+              <div className="flex items-center justify-between text-xs font-mono text-content-secondary">
                 <div className="flex items-center gap-2">
-                  <DiscordIcon className="w-3.5 h-3.5 text-zinc-400" aria-hidden="true" />
+                  <DiscordIcon className="w-3.5 h-3.5 text-content-secondary" aria-hidden="true" />
                   <span>DIRECT CHAT</span>
                 </div>
-                <span className="text-[10px] text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                <span className="text-[10px] text-content-secondary group-hover:text-content-primary transition-colors">
                   [HANDLE]
                 </span>
               </div>
@@ -186,14 +186,14 @@ export function ContactSection({ onToast }: ContactSectionProps) {
                   <span className="text-xl font-semibold tracking-tight text-zinc-200 block">
                     DISCORD
                   </span>
-                  <span className="text-[11px] font-mono text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                  <span className="text-[11px] font-mono text-content-secondary group-hover:text-content-primary transition-colors">
                     @{portfolioConfig.social.discord}
                   </span>
                 </div>
                 {copiedDiscord ? (
                   <Check className="w-4 h-4 text-emerald-400" aria-hidden="true" />
                 ) : (
-                  <Copy className="w-4 h-4 text-zinc-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
+                  <Copy className="w-4 h-4 text-content-secondary group-hover:scale-110 transition-transform" aria-hidden="true" />
                 )}
               </div>
             </button>

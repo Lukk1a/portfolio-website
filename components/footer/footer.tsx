@@ -29,14 +29,14 @@ export function Footer({ onToast }: FooterProps) {
   };
 
   return (
-    <footer className="border-t border-white/[0.08] bg-black py-12 sm:py-16 px-6 sm:px-8 font-mono">
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 text-xs text-zinc-400">
+    <footer className="border-t border-border-subtle bg-black py-12 sm:py-16 px-6 sm:px-8 font-mono">
+      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 text-xs text-content-secondary">
         {/* Left: Name & Copyright */}
         <div className="space-y-1">
           <p className="text-sm font-semibold tracking-wider text-white">
             {portfolioConfig.personal.fullName}
           </p>
-          <p className="text-zinc-400 text-[11px]">
+          <p className="text-content-secondary text-[11px]">
             © {new Date().getFullYear()} Luka Pajkanovic. All rights reserved.
           </p>
         </div>
@@ -50,7 +50,7 @@ export function Footer({ onToast }: FooterProps) {
             aria-label="Open portfolio source code repository on GitHub"
             className="flex items-center gap-1.5 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded px-2.5 py-1.5 min-h-[36px]"
           >
-            <GithubIcon className="w-3.5 h-3.5 text-zinc-400" aria-hidden="true" />
+            <GithubIcon className="w-3.5 h-3.5 text-content-secondary" aria-hidden="true" />
             <span>Repository</span>
           </a>
           <a
@@ -60,7 +60,7 @@ export function Footer({ onToast }: FooterProps) {
             aria-label="Open GitHub profile"
             className="flex items-center gap-1.5 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded px-2.5 py-1.5 min-h-[36px]"
           >
-            <GithubIcon className="w-3.5 h-3.5 text-zinc-400" aria-hidden="true" />
+            <GithubIcon className="w-3.5 h-3.5 text-content-secondary" aria-hidden="true" />
             <span>GitHub</span>
           </a>
           <button
@@ -72,7 +72,7 @@ export function Footer({ onToast }: FooterProps) {
             {copiedEmail ? (
               <Check className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
             ) : (
-              <Mail className="w-3.5 h-3.5 text-zinc-400" aria-hidden="true" />
+              <Mail className="w-3.5 h-3.5 text-content-secondary" aria-hidden="true" />
             )}
             <span>Email</span>
           </button>
@@ -85,7 +85,7 @@ export function Footer({ onToast }: FooterProps) {
             {copiedDiscord ? (
               <Check className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
             ) : (
-              <DiscordIcon className="w-3.5 h-3.5 text-zinc-400" aria-hidden="true" />
+              <DiscordIcon className="w-3.5 h-3.5 text-content-secondary" aria-hidden="true" />
             )}
             <span>Discord</span>
           </button>
@@ -95,11 +95,11 @@ export function Footer({ onToast }: FooterProps) {
         <button
           type="button"
           onClick={() => scrollToSection("hero")}
-          className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors cursor-pointer group interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded px-3 py-1.5 min-h-[36px]"
+          className="flex items-center gap-2 text-content-secondary hover:text-white transition-colors cursor-pointer group interactive-press focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded px-3 py-1.5 min-h-[36px]"
           aria-label="Back to top of page"
         >
           <span>BACK TO TOP</span>
-          <ArrowUp className="w-3.5 h-3.5 text-zinc-400 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
+          <ArrowUp className="w-3.5 h-3.5 text-content-secondary group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
         </button>
       </div>
     </footer>

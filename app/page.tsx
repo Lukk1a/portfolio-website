@@ -41,7 +41,7 @@ export default function Home() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative min-h-[100dvh] bg-black text-[#ededed] selection:bg-white/20 selection:text-white">
+      <div className="relative min-h-[100dvh] bg-background text-content-primary selection:bg-white/20 selection:text-white">
         {/* Global Mobile Drawer */}
         <MobileMenu
           isOpen={isMobileMenuOpen}

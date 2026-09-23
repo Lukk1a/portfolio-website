@@ -45,22 +45,22 @@ export function HeroSection() {
         className="my-auto py-8 sm:py-12 space-y-8 max-w-3xl"
       >
         <motion.div variants={itemVariants} className="space-y-3">
-          <span className="font-mono text-xs tracking-widest text-zinc-400 uppercase">
+          <span className="font-mono text-xs tracking-widest text-content-muted uppercase">
             {"// SYSTEMS & WEB ARCHITECTURE"}
           </span>
           <h1
             id="hero-heading"
-            className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter text-white leading-[0.95] text-balance"
+            className="text-5xl sm:text-7xl md:text-8xl font-serif font-medium tracking-tight text-content-primary leading-[1.05] text-balance"
           >
             {portfolioConfig.personal.fullName}
           </h1>
         </motion.div>
 
         <motion.div variants={itemVariants} className="space-y-4">
-          <p className="text-xl sm:text-2xl font-light text-zinc-300 tracking-tight leading-snug">
+          <p className="text-xl sm:text-2xl font-serif italic text-content-secondary tracking-wide leading-snug">
             {portfolioConfig.personal.role}
           </p>
-          <p className="text-base sm:text-lg text-zinc-400 font-light leading-relaxed max-w-2xl text-pretty">
+          <p className="text-base sm:text-lg text-content-muted font-light leading-relaxed max-w-2xl text-pretty">
             {portfolioConfig.personal.bio} {portfolioConfig.personal.statement}
           </p>
         </motion.div>
@@ -70,7 +70,7 @@ export function HeroSection() {
           {portfolioConfig.personal.coreHighlights.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1.5 rounded-lg bg-zinc-950/80 border border-white/[0.08] text-xs font-mono text-zinc-300"
+              className="px-3 py-1.5 rounded-lg bg-surface-100 border border-border-subtle text-xs font-mono text-content-secondary"
             >
               {tech}
             </span>
@@ -87,11 +87,11 @@ export function HeroSection() {
                 scrollToSection("skills");
               }}
               aria-label="View architecture and technical skills"
-              className="group pl-5 pr-3 py-2.5 min-h-[44px] rounded-full bg-white text-black font-medium text-xs font-mono tracking-wider hover:bg-zinc-200 transition-all duration-150 interactive-press cursor-pointer inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              className="group pl-5 pr-3 py-2.5 min-h-[44px] rounded-full bg-accent text-background font-medium text-xs font-mono tracking-wider hover:bg-white transition-all duration-150 interactive-press cursor-pointer inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <span>VIEW ARCHITECTURE</span>
-              <div className="w-6 h-6 rounded-full bg-black/10 flex items-center justify-center group-hover:translate-y-0.5 transition-transform duration-150">
-                <ArrowDown className="w-3 h-3 text-black" aria-hidden="true" />
+              <div className="w-6 h-6 rounded-full bg-background/10 flex items-center justify-center group-hover:translate-y-0.5 transition-transform duration-150">
+                <ArrowDown className="w-3 h-3 text-background" aria-hidden="true" />
               </div>
             </a>
           </Magnetic>
@@ -103,7 +103,7 @@ export function HeroSection() {
               scrollToSection("contact");
             }}
             aria-label="Navigate to contact section"
-            className="px-5 py-2.5 min-h-[44px] rounded-full bg-transparent border border-white/[0.12] hover:border-white/[0.25] text-zinc-300 hover:text-white text-xs font-mono tracking-wider transition-colors interactive-press cursor-pointer inline-flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+            className="px-5 py-2.5 min-h-[44px] rounded-full bg-transparent border border-border-muted hover:border-border-focus text-content-secondary hover:text-content-primary text-xs font-mono tracking-wider transition-colors interactive-press cursor-pointer inline-flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-border-focus"
           >
             CONTACT
           </a>

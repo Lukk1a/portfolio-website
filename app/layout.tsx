@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { portfolioConfig } from "@/config/portfolio";
@@ -13,6 +13,12 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
   subsets: ["latin"],
   display: "swap",
 });
@@ -63,7 +69,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#121110",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -135,8 +141,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark`} style={{ background: "#000000", colorScheme: "dark" }}>
-      <body className="min-h-[100dvh] bg-black text-[#ededed] font-sans antialiased" style={{ background: "#000000" }}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} dark`} style={{ background: "#121110", colorScheme: "dark" }}>
+      <body className="min-h-[100dvh] bg-background text-content-primary font-sans antialiased" style={{ background: "#121110" }}>
         {/* Skip to Main Content Link for WCAG 2.4.1 Keyboard Accessibility */}
         <a
           href="#main-content"

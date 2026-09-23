@@ -9,34 +9,35 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#000000",
+        background: "#121110",
         surface: {
-          50: "#18181b",
-          100: "#121214",
-          200: "#0e0e10",
-          300: "#09090b",
-          DEFAULT: "#000000",
+          50: "#1d1c1a",
+          100: "#1a1917",
+          200: "#161615",
+          300: "#121110",
+          DEFAULT: "#121110",
         },
         border: {
-          subtle: "rgba(255, 255, 255, 0.08)",
-          muted: "rgba(255, 255, 255, 0.14)",
-          focus: "rgba(255, 255, 255, 0.28)",
+          subtle: "rgba(255, 255, 255, 0.1)",
+          muted: "rgba(255, 255, 255, 0.15)",
+          focus: "rgba(255, 255, 255, 0.3)",
         },
         content: {
-          primary: "#ededed",
-          secondary: "#a1a1aa",
-          muted: "#71717a",
-          subtle: "#52525b",
+          primary: "#f5f5f3",
+          secondary: "#a9a9a6",
+          muted: "#82817d",
+          subtle: "#62615e",
         },
         accent: {
-          DEFAULT: "#ededed",
+          DEFAULT: "#f5f5f3",
           pure: "#ffffff",
-          glow: "rgba(255, 255, 255, 0.08)",
+          glow: "rgba(255, 255, 255, 0.1)",
         },
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)", "Inter", "-apple-system", "sans-serif"],
         mono: ["var(--font-geist-mono)", "JetBrains Mono", "monospace"],
+        serif: ["var(--font-newsreader)", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
       },
       letterSpacing: {
         tighter: "-0.04em",

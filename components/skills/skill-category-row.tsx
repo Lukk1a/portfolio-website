@@ -13,11 +13,11 @@ export function SkillCategoryRow({ category }: SkillCategoryRowProps) {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
         {/* Category Header (Left column) */}
         <div className="md:col-span-4 space-y-1.5">
-          <h3 className="flex items-center gap-2 font-mono text-xs text-zinc-400 tracking-wider uppercase">
+          <h3 className="flex items-center gap-2 font-mono text-xs text-content-secondary tracking-wider uppercase">
             <span className="text-white font-semibold font-mono">[{category.index}]</span>
             <span className="text-white font-medium">{category.title}</span>
           </h3>
-          <p className="text-xs text-zinc-400 leading-relaxed max-w-xs font-light">
+          <p className="text-xs text-content-secondary leading-relaxed max-w-xs font-light">
             {category.description}
           </p>
         </div>
@@ -35,8 +35,8 @@ export function SkillCategoryRow({ category }: SkillCategoryRowProps) {
               whileHover={{ y: -1 }}
               className={`group relative flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all duration-150 cursor-default ${
                 item.highlight
-                  ? "bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] hover:border-white/[0.28]"
-                  : "bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] hover:border-white/[0.2]"
+                  ? "bg-white/[0.04] hover:bg-white/[0.08] border border-border-subtle hover:border-border-subtle"
+                  : "bg-white/[0.02] hover:bg-white/[0.06] border border-border-subtle hover:border-border-subtle"
               }`}
             >
               <span
@@ -50,13 +50,13 @@ export function SkillCategoryRow({ category }: SkillCategoryRowProps) {
                 className={`text-xs sm:text-sm font-medium tracking-tight transition-colors ${
                   item.highlight
                     ? "text-white"
-                    : "text-zinc-300 group-hover:text-white"
+                    : "text-content-primary group-hover:text-white"
                 }`}
               >
                 {item.name}
               </span>
               {item.domain && (
-                <span className="hidden sm:inline-block font-mono text-[10px] text-zinc-400 group-hover:text-zinc-300 transition-colors border-l border-white/10 pl-2">
+                <span className="hidden sm:inline-block font-mono text-[10px] text-content-secondary group-hover:text-content-primary transition-colors border-l border-white/10 pl-2">
                   {item.domain}
                 </span>
               )}

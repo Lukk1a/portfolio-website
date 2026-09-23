@@ -61,7 +61,7 @@ export function ScrollIndicator({ activeSection: controlledActive, onActiveSecti
       aria-label="Section radar navigation"
       className="fixed right-6 lg:right-8 top-1/2 -translate-y-1/2 z-40 hidden md:flex items-center justify-center select-none"
     >
-      <div className="relative flex flex-col items-center justify-center gap-1.5 p-2 rounded-2xl bg-zinc-950/80 backdrop-blur-md border border-white/[0.08] shadow-card w-12">
+      <div className="relative flex flex-col items-center justify-center gap-1.5 p-2 rounded-2xl bg-surface-100 backdrop-blur-md border border-border-subtle shadow-card w-12">
         {/* Subtle Vertical Connector Track */}
         <div className="absolute top-4 bottom-4 w-[1px] bg-white/[0.04] pointer-events-none" />
 
@@ -79,10 +79,10 @@ export function ScrollIndicator({ activeSection: controlledActive, onActiveSecti
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     exit={{ opacity: 0, x: 4, scale: 0.95 }}
                     transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute right-full mr-3 px-2.5 py-1 rounded-md bg-zinc-900/95 border border-white/[0.12] text-[11px] font-mono text-white whitespace-nowrap shadow-xl pointer-events-none backdrop-blur-md flex items-center gap-1"
+                    className="absolute right-full mr-3 px-2.5 py-1 rounded-md bg-surface-100 border border-border-subtle text-[11px] font-mono text-white whitespace-nowrap shadow-xl pointer-events-none backdrop-blur-md flex items-center gap-1"
                   >
                     <span>{label}</span>
-                    <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-1.5 h-1.5 rotate-45 bg-zinc-900 border-r border-t border-white/[0.12]" />
+                    <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-1.5 h-1.5 rotate-45 bg-surface-50 border-r border-t border-border-subtle" />
                   </motion.div>
                 )}
               </AnimatePresence>
